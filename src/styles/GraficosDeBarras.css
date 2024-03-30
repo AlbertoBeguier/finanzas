@@ -1,0 +1,42 @@
+.grafico-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
+}
+
+.leyenda-personalizada {
+  display: flex;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Asegura que los elementos estén alineados verticalmente en el centro */
+  flex-wrap: wrap; /* Permite que los elementos de la leyenda se ajusten según el ancho disponible */
+  width: 100%; /* Hace que la leyenda ocupe el ancho completo del contenedor para centrar correctamente */
+  margin-top: 20px; /* Añade espacio entre el gráfico y la leyenda */
+}
+
+.indicador-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.leyenda {
+  padding: 10px;
+  text-align: center; /* Asegura que el texto dentro de cada leyenda esté centrado */
+  font-size: small;
+  color: gray;
+}
+.input-meses {
+  width: 7%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.parrafo-greficos {
+  text-align: center;
+  color: #3e499c;
+}

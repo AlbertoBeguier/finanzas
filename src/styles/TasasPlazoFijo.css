@@ -1,0 +1,14 @@
+.fila-maxima {
+  background-color: rgba(204, 250, 205, 0.5); /* Verde para el máximo */
+}
+
+.fila-minima {
+  background-color: rgba(250, 211, 211, 0.5); /* Rojo para el mínimo */
+}
+.tabla-plazo-fijo {
+  font-size: 0.9rem;
+}
+.parrafo-p-fijo {
+  font-size: 1rem;
+  text-align: center;
+}

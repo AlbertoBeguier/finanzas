@@ -1,0 +1,14 @@
+.bitcoin-titulo {
+  color: #3e499c;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bitcoin-parrafo {
+  color: orange;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
