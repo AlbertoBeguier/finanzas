@@ -41,8 +41,8 @@ export const TasasPlazoFijo = () => {
               <tr>
                 <th style={{ textAlign: "left" }}>Banco</th>
                 <th style={{ textAlign: "center" }}>TNA </th>
-                <th style={{ textAlign: "center" }}>T Mensual</th>
-                <th style={{ textAlign: "center" }}>T Diaria</th>
+                <th style={{ textAlign: "center" }}>TNM</th>
+                <th style={{ textAlign: "center" }}>TND</th>
               </tr>
             </thead>
             <tbody className="tabla-plazo-fijo">
