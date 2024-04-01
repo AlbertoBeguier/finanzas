@@ -5,6 +5,9 @@ import { Footer } from "./components/Footer";
 import { InfoDolar } from "./components/InfoDolar";
 import { InfoDolarAmbito } from "./components/InfoDolarAmbito";
 import { GraficoCotizacionDolarOficialMensual } from "./components/GraficoCotizacionDolarOficialMensual";
+import { GraficoCotizacionDolarBlueMensual } from "./components/GraficoCotizacionDolarBlueMensual";
+import { GraficoCotizacionDolarBolsaMensual } from "./components/GraficoCotizacionDolarBolsaMensual";
+import { GraficoCotizacionDolarContadoConLiquiMensual } from "./components/GraficoCotizacionDolarContadoConLiquiMensual";
 import { TasasPlazoFijo } from "./components/TasasPlazoFijo";
 import { GraficoInflacionMensual } from "./components/GraficoInflacionMensual";
 import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
@@ -28,6 +31,9 @@ function App() {
         </div>
       </div>
       <GraficoCotizacionDolarOficialMensual />
+      <GraficoCotizacionDolarBlueMensual />
+      <GraficoCotizacionDolarBolsaMensual />
+      <GraficoCotizacionDolarContadoConLiquiMensual />
       <TasasPlazoFijo />
       <GraficoInflacionMensual />
       <GraficoInflacionInteranual />
