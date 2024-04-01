@@ -19,7 +19,7 @@ export const InfoDolarAmbito = () => {
     <div>
       {dataDolar ? (
         <>
-          <h3>Cotización Dólar (Ámbito Financiero) </h3>
+          <h3>Cotización Dólar (Ámbito) </h3>
           <table>
             <thead>
               <tr>
