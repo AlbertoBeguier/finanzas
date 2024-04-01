@@ -101,9 +101,8 @@ export const GraficoInflacionMensual = () => {
         anchor: "center",
         align: "center",
         color: "black",
-        rotation: 270, // Rota las etiquetas para que estén verticales
         formatter: function (value) {
-          return `${value.toFixed(2)}`; // Formatea los valores a dos decimales
+          return `${value.toFixed(2)} %`; // Formatea los valores a dos decimales
         },
       },
     },
@@ -112,11 +111,11 @@ export const GraficoInflacionMensual = () => {
   return (
     <div className="grafico-container" style={chartContainerStyle}>
       <h3>{`Inflación Mensual - Últimos ${meses} Meses`}</h3>
-      <label htmlFor="meses">Seleccione la cantidad de meses: </label>
+      <label htmlFor="meses5">Seleccione la cantidad de meses: </label>
       <input
         className="input-meses"
         type="number"
-        id="meses"
+        id="meses5"
         value={meses}
         onChange={e => setMeses(e.target.value)}
         min="10" // meses mínimos en el gráfico

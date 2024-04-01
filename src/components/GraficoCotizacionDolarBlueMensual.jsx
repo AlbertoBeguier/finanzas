@@ -102,7 +102,7 @@ export const GraficoCotizacionDolarBlueMensual = () => {
         color: "black",
         rotation: 270, // Rota las etiquetas para que estén verticales
         formatter: function (value) {
-          return `${value.toFixed(2)}`; // Formatea los valores a dos decimales
+          return `$ ${value.toFixed(2)}`; // Formatea los valores a dos decimales
         },
       },
     },

@@ -10,6 +10,7 @@ import { GraficoCotizacionDolarBolsaMensual } from "./components/GraficoCotizaci
 import { GraficoCotizacionDolarContadoConLiquiMensual } from "./components/GraficoCotizacionDolarContadoConLiquiMensual";
 import { TasasPlazoFijo } from "./components/TasasPlazoFijo";
 import { GraficoInflacionMensual } from "./components/GraficoInflacionMensual";
+import { GraficoInflacionAcumulada } from "./components/GraficoInflacionAcumulada";
 import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
 import { GraficoInflacionInteranual } from "./components/GraficoInflacionInteranual";
 
@@ -36,6 +37,7 @@ function App() {
       <GraficoCotizacionDolarContadoConLiquiMensual />
       <TasasPlazoFijo />
       <GraficoInflacionMensual />
+      <GraficoInflacionAcumulada />
       <GraficoInflacionInteranual />
       <CotizacionBitcoin />
       <Footer />

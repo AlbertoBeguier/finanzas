@@ -91,9 +91,8 @@ export const GraficoInflacionInteranual = () => {
         anchor: "center",
         align: "center",
         color: "black",
-        rotation: 270, // Rota las etiquetas para que estén verticales
         formatter: function (value) {
-          return `${value.toFixed(2)}`; // Formatea los valores a dos decimales
+          return `${value.toFixed(2)} %`; // Formatea los valores a dos decimales
         },
       },
     },
@@ -115,11 +114,11 @@ export const GraficoInflacionInteranual = () => {
         Compara el nivel de precios de un mes específico con el nivel de precios
         del mismo mes en el año anterior.
       </p>
-      <label htmlFor="meses">Seleccione la cantidad de meses: </label>
+      <label htmlFor="meses4">Seleccione la cantidad de meses: </label>
       <input
         className="input-meses"
         type="number"
-        id="meses"
+        id="meses4"
         value={meses}
         onChange={e => setMeses(Number(e.target.value))}
       />
