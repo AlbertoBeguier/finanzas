@@ -24,11 +24,14 @@ export const CotizacionBitcoin = () => {
       .replace(/X/g, ","); // Reemplaza 'X' por comas.
   };
   return (
-    <div className="bitcoin-container">
-      <h3 className="bitcoin-titulo">Cotización Bitcoin</h3>
-      {cotizacion.price && (
-        <p className="bitcoin-parrafo">{formatPrice(cotizacion.price)}</p>
-      )}
-    </div>
+    <>
+      <div className="bitcoin-container">
+        <h3 className="bitcoin-titulo">Cotización Bitcoin</h3>
+        {cotizacion.price && (
+          <p className="bitcoin-parrafo">{formatPrice(cotizacion.price)}</p>
+        )}
+      </div>
+      <hr />
+    </>
   );
 };

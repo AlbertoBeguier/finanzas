@@ -109,43 +109,46 @@ export const GraficoInflacionMensual = () => {
   };
 
   return (
-    <div className="grafico-container" style={chartContainerStyle}>
-      <h3>{`Inflación Mensual - Últimos ${meses} Meses`}</h3>
-      <label htmlFor="meses5">Seleccione la cantidad de meses: </label>
-      <input
-        className="input-meses"
-        type="number"
-        id="meses5"
-        value={meses}
-        onChange={e => setMeses(e.target.value)}
-        min="10" // meses mínimos en el gráfico
-      />
-      {dataInflacion.length > 0 ? (
-        <>
-          <Bar data={chartData} options={options} />
-          <span className="leyenda-personalizada">
-            <span>
-              <span
-                className="indicador-color"
-                style={{ backgroundColor: "#ccfacd" }}
-              ></span>
-              <span className="leyenda">Valor Máximo</span>
+    <>
+      <div className="grafico-container" style={chartContainerStyle}>
+        <h3>{`Inflación Mensual - Últimos ${meses} Meses`}</h3>
+        <label htmlFor="meses5">Seleccione la cantidad de meses: </label>
+        <input
+          className="input-meses"
+          type="number"
+          id="meses5"
+          value={meses}
+          onChange={e => setMeses(e.target.value)}
+          min="10" // meses mínimos en el gráfico
+        />
+        {dataInflacion.length > 0 ? (
+          <>
+            <Bar data={chartData} options={options} />
+            <span className="leyenda-personalizada">
+              <span>
+                <span
+                  className="indicador-color"
+                  style={{ backgroundColor: "#ccfacd" }}
+                ></span>
+                <span className="leyenda">Valor Máximo</span>
+              </span>
+              <span>
+                <span
+                  className="indicador-color"
+                  style={{ backgroundColor: "rgb(250, 211, 211)" }}
+                ></span>
+                <span className="leyenda">Valor Mínimo</span>
+              </span>
             </span>
-            <span>
-              <span
-                className="indicador-color"
-                style={{ backgroundColor: "rgb(250, 211, 211)" }}
-              ></span>
-              <span className="leyenda">Valor Mínimo</span>
-            </span>
-          </span>
-        </>
-      ) : (
-        <div className="loading-container">
-          <div className="spinner"></div>
-          <span className="texto-spinner">Cargando datos...</span>
-        </div>
-      )}
-    </div>
+          </>
+        ) : (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <span className="texto-spinner">Cargando datos...</span>
+          </div>
+        )}
+      </div>
+      <hr />
+    </>
   );
 };

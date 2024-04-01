@@ -30,6 +30,8 @@ function App() {
             <InfoDolarAmbito />
           </div>
         </div>
+        <br />
+        <hr />
       </div>
       <GraficoCotizacionDolarOficialMensual />
       <GraficoCotizacionDolarBlueMensual />

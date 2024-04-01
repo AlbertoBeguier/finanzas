@@ -109,27 +109,30 @@ export const GraficoCotizacionDolarBlueMensual = () => {
   };
 
   return (
-    <div className="grafico-container" style={chartContainerStyle}>
-      <h3>{`Cotización dólar blue - Últimos ${meses} Meses`}</h3>
-      <label htmlFor="meses">Seleccione la cantidad de meses: </label>
-      <input
-        className="input-meses"
-        type="number"
-        id="meses"
-        value={meses}
-        onChange={e => setMeses(e.target.value)}
-        min="10" // meses mínimos en el gráfico
-      />
-      {datosCotizacion.length > 0 ? (
-        <>
-          <Bar data={chartData} options={options} />
-        </>
-      ) : (
-        <div className="loading-container">
-          <div className="spinner"></div>
-          <span className="texto-spinner">Cargando datos...</span>
-        </div>
-      )}
-    </div>
+    <>
+      <div className="grafico-container" style={chartContainerStyle}>
+        <h3>{`Cotización dólar blue - Últimos ${meses} Meses`}</h3>
+        <label htmlFor="meses">Seleccione la cantidad de meses: </label>
+        <input
+          className="input-meses"
+          type="number"
+          id="meses"
+          value={meses}
+          onChange={e => setMeses(e.target.value)}
+          min="10" // meses mínimos en el gráfico
+        />
+        {datosCotizacion.length > 0 ? (
+          <>
+            <Bar data={chartData} options={options} />
+          </>
+        ) : (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <span className="texto-spinner">Cargando datos...</span>
+          </div>
+        )}
+      </div>
+      <hr />
+    </>
   );
 };

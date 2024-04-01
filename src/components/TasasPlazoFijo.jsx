@@ -28,53 +28,57 @@ export const TasasPlazoFijo = () => {
   }, []);
 
   return (
-    <div>
-      {dataTasas.tasas ? (
-        <>
-          <h3>Tasas Plazos Fijos reportadas al BCRA</h3>
-          <p className="parrafo-p-fijo">
-            Las tasas son reportadas por los bancos al BCRA en cumplimiento del
-            Régimen Informativo de Transparencia.
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th style={{ textAlign: "left" }}>Banco</th>
-                <th style={{ textAlign: "center" }}>TNA </th>
-                <th style={{ textAlign: "center" }}>TNM</th>
-                <th style={{ textAlign: "center" }}>TND</th>
-              </tr>
-            </thead>
-            <tbody className="tabla-plazo-fijo">
-              {dataTasas.tasas.map((tasa, index) => (
-                <tr
-                  key={index}
-                  className={
-                    tasa.tnaClientes === dataTasas.maxTNA
-                      ? "fila-maxima"
-                      : tasa.tnaClientes === dataTasas.minTNA
-                      ? "fila-minima"
-                      : ""
-                  }
-                >
-                  <td>{tasa.entidad}</td>
-
-                  <td style={{ textAlign: "center" }}>
-                    {tasa.tnaClientes.toFixed(2)}
-                  </td>
-                  <td style={{ textAlign: "center" }}>{tasa.tasaMensual}</td>
-                  <td style={{ textAlign: "center" }}>{tasa.tasaDiaria}</td>
+    <>
+      <div>
+        {dataTasas.tasas ? (
+          <>
+            <h3>Tasas Plazos Fijos reportadas al BCRA</h3>
+            <p className="parrafo-p-fijo">
+              Las tasas son reportadas por los bancos al BCRA en cumplimiento
+              del Régimen Informativo de Transparencia.
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left" }}>Banco</th>
+                  <th style={{ textAlign: "center" }}>TNA </th>
+                  <th style={{ textAlign: "center" }}>TNM</th>
+                  <th style={{ textAlign: "center" }}>TND</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </>
-      ) : (
-        <div className="loading-container">
-          <div className="spinner"></div>
-          <span className="texto-spinner">Cargando datos...</span>
-        </div>
-      )}
-    </div>
+              </thead>
+              <tbody className="tabla-plazo-fijo">
+                {dataTasas.tasas.map((tasa, index) => (
+                  <tr
+                    key={index}
+                    className={
+                      tasa.tnaClientes === dataTasas.maxTNA
+                        ? "fila-maxima"
+                        : tasa.tnaClientes === dataTasas.minTNA
+                        ? "fila-minima"
+                        : ""
+                    }
+                  >
+                    <td>{tasa.entidad}</td>
+
+                    <td style={{ textAlign: "center" }}>
+                      {tasa.tnaClientes.toFixed(2)}
+                    </td>
+                    <td style={{ textAlign: "center" }}>{tasa.tasaMensual}</td>
+                    <td style={{ textAlign: "center" }}>{tasa.tasaDiaria}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <span className="texto-spinner">Cargando datos...</span>
+          </div>
+        )}
+      </div>
+      <br />
+      <hr />
+    </>
   );
 };
