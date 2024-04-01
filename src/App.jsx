@@ -4,6 +4,7 @@ import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { InfoDolar } from "./components/InfoDolar";
 import { InfoDolarAmbito } from "./components/InfoDolarAmbito";
+import { GraficoCotizacionDolarOficialMensual } from "./components/GraficoCotizacionDolarOficialMensual";
 import { TasasPlazoFijo } from "./components/TasasPlazoFijo";
 import { GraficoInflacionMensual } from "./components/GraficoInflacionMensual";
 import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
@@ -26,6 +27,7 @@ function App() {
           </div>
         </div>
       </div>
+      <GraficoCotizacionDolarOficialMensual />
       <TasasPlazoFijo />
       <GraficoInflacionMensual />
       <GraficoInflacionInteranual />
