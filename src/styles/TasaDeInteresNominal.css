@@ -1,0 +1,56 @@
+.input-tasa-nominal {
+  margin: 5px;
+  width: 20%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.select-tasa-nominal {
+  margin: 5px;
+  width: 20%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.button-tasa-nominal {
+  background-color: #3e499c;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3e499c; /* Borde Negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra gris */
+  text-decoration: none;
+}
+.button-tasa-nominal:hover {
+  color: black; /* Color del texto al pasar el cursor */
+  background-color: rgb(219, 210, 210); /* Color de fondo al pasar el cursor */
+  text-decoration: none;
+  border: 2px solid rgb(196, 194, 194); /* Borde Negro */
+}
+.contenedor-tasa-nominal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor-tasa-nominal-1 {
+  display: inline-block; /* Hace que el ancho se ajuste al contenido */
+  border: 1px solid #3e499c;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3e499c;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px; /* Añade un poco de espacio alrededor del texto */
+}
+.contenedor-padre-tasa-nominal-1 {
+  text-align: center; /* Centra los elementos inline-block dentro de este contenedor */
+}

@@ -36,11 +36,11 @@ export const TablaInteresCompuesto = ({
       <table>
         <thead>
           <tr>
-            <th>Período</th>
-            <th>Capital Inicial</th>
-            <th>Interés</th>
-            <th>Capital Final</th>
-            <th>Rendimiento Efectivo</th>
+            <th className="tabla-interes-titulo-columna">Per</th>
+            <th className="tabla-interes-titulo-columna">Capital Inicial</th>
+            <th className="tabla-interes-titulo-columna">Interés</th>
+            <th className="tabla-interes-titulo-columna">Capital Final</th>
+            <th className="tabla-interes-titulo-columna">Tasa Efectiva</th>
           </tr>
         </thead>
         <tbody>

@@ -49,3 +49,14 @@
 .tr-multiplo-de-12:hover {
   color: black;
 }
+
+.contenedor-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabla-interes-titulo-columna {
+  text-align: center;
+  white-space: nowrap;
+}

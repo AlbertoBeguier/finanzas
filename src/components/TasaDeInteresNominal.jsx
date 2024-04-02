@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../styles/TasaDeInteresNominal.css";
 export const TasaDeInteresNominal = () => {
   const [tasaNominal, setTasaNominal] = useState("");
   const [periodo, setPeriodo] = useState("anual");
@@ -40,37 +40,50 @@ export const TasaDeInteresNominal = () => {
   return (
     <div>
       <h3>Tasa Nominal</h3>
-      <input
-        type="number"
-        placeholder="Ingrese tasa nominal"
-        value={tasaNominal}
-        onChange={e => setTasaNominal(e.target.value)}
-      />
-      <select value={periodo} onChange={e => setPeriodo(e.target.value)}>
-        <option value="anual">Anual</option>
-        <option value="mensual">Mensual</option>
-        <option value="diaria">Diaria</option>
-      </select>
-      <button onClick={calcularTasas}>Calcular Tasas</button>
-
-      {/* Condición para mostrar resultados */}
-      {mostrarResultados && (
-        <>
-          <hr />
-          <p>
-            Tasa Anual: {tasaAnual} ({(parseFloat(tasaAnual) * 100).toFixed(2)}{" "}
-            %)
-          </p>
-          <p>
-            Tasa Mensual: {tasaMensual} (
-            {(parseFloat(tasaMensual) * 100).toFixed(2)} %)
-          </p>
-          <p>
-            Tasa Diaria: {tasaDiaria} (
-            {(parseFloat(tasaDiaria) * 100).toFixed(2)} %)
-          </p>
-        </>
-      )}
+      <div className="contenedor-tasa-nominal">
+        <input
+          className="input-tasa-nominal"
+          type="number"
+          placeholder="TNominal"
+          value={tasaNominal}
+          onChange={e => setTasaNominal(e.target.value)}
+        />
+        <select
+          className="select-tasa-nominal"
+          value={periodo}
+          onChange={e => setPeriodo(e.target.value)}
+        >
+          <option value="anual">Anual</option>
+          <option value="mensual">Mensual</option>
+          <option value="diaria">Diaria</option>
+        </select>
+        <button className="button-tasa-nominal" onClick={calcularTasas}>
+          Calcular Tasas
+        </button>
+      </div>
+      <br />
+      <div className="contenedor-padre-tasa-nominal-1">
+        <div className="contenedor-tasa-nominal-1">
+          {/* Condición para mostrar resultados */}
+          {mostrarResultados && (
+            <>
+              <p>
+                Tasa Anual: {tasaAnual} (
+                {(parseFloat(tasaAnual) * 100).toFixed(2)} %)
+              </p>
+              <p>
+                Tasa Mensual: {tasaMensual} (
+                {(parseFloat(tasaMensual) * 100).toFixed(2)} %)
+              </p>
+              <p>
+                Tasa Diaria: {tasaDiaria} (
+                {(parseFloat(tasaDiaria) * 100).toFixed(2)} %)
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+      <br />
     </div>
   );
 };

@@ -90,93 +90,95 @@ export const InteresSimple = () => {
   const resultadoCalculo = calcularVariableFaltante();
 
   return (
-    <div>
-      <h3>Interés Simple</h3>
+    <>
       <div>
-        <label className="label-interes">
-          Capital Inicial:
-          <input
-            className="input-interes"
-            type="text"
-            value={capitalInicial}
-            onChange={handleChangeInicial}
-          />
-        </label>
-        <span className="span-interes">{capitalInicialFormateado}</span>
-      </div>
-
-      <div>
-        <label className="label-interes">
-          Unidad de Tiempo:
-          <select
-            className="select-interes"
-            value={unidadTiempo}
-            onChange={handleUnidadTiempoChange}
-          >
-            <option value="día">Día</option>
-            <option value="mes">Mes</option>
-            <option value="año">Año</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label className="label-interes">
-          Cantidad de{" "}
-          {unidadTiempo === "día"
-            ? cantidadTiempo === "1"
-              ? "Día"
-              : "Días"
-            : unidadTiempo === "mes"
-            ? cantidadTiempo === "1"
-              ? "Mes"
-              : "Meses"
-            : cantidadTiempo === "1"
-            ? "Año"
-            : "Años"}
-          :
-          <input
-            className="input-interes-1"
-            type="number"
-            min="1"
-            value={cantidadTiempo}
-            onChange={handleCantidadTiempoChange}
-          />
-        </label>
-        <span className="span-interes">{renderizarTiempo()}</span>
-      </div>
-
-      <div>
-        <label className="label-interes">
-          Tasa de Interés:
-          <input
-            className="input-interes-2"
-            type="text"
-            value={tasa}
-            onChange={handleChangeTasa}
-          />
-        </label>
-        {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}
-        <span className="span-interes">{tasaEnPorcentaje}</span>
-      </div>
-      <div>
-        <label className="label-interes">
-          Capital Final:
-          <input
-            className="input-interes"
-            type="text"
-            value={capitalFinal}
-            onChange={handleChangeFinal}
-          />
-        </label>
-        <span className="span-interes">{capitalFinalFormateado}</span>
-      </div>
-      {resultadoCalculo && (
+        <h3>Interés Simple</h3>
         <div>
-          <strong>Resultado:</strong>{" "}
-          <div className="span-interes-1">{resultadoCalculo}</div>
+          <label className="label-interes">
+            Capital Inicial:
+            <input
+              className="input-interes"
+              type="text"
+              value={capitalInicial}
+              onChange={handleChangeInicial}
+            />
+          </label>
+          <span className="span-interes">{capitalInicialFormateado}</span>
         </div>
-      )}
-      <div>
+
+        <div>
+          <label className="label-interes">
+            Unidad de Tiempo:
+            <select
+              className="select-interes"
+              value={unidadTiempo}
+              onChange={handleUnidadTiempoChange}
+            >
+              <option value="día">Día</option>
+              <option value="mes">Mes</option>
+              <option value="año">Año</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label className="label-interes">
+            Cantidad de{" "}
+            {unidadTiempo === "día"
+              ? cantidadTiempo === "1"
+                ? "Día"
+                : "Días"
+              : unidadTiempo === "mes"
+              ? cantidadTiempo === "1"
+                ? "Mes"
+                : "Meses"
+              : cantidadTiempo === "1"
+              ? "Año"
+              : "Años"}
+            :
+            <input
+              className="input-interes-1"
+              type="number"
+              min="1"
+              value={cantidadTiempo}
+              onChange={handleCantidadTiempoChange}
+            />
+          </label>
+          <span className="span-interes">{renderizarTiempo()}</span>
+        </div>
+
+        <div>
+          <label className="label-interes">
+            Tasa de Interés:
+            <input
+              className="input-interes-2"
+              type="text"
+              value={tasa}
+              onChange={handleChangeTasa}
+            />
+          </label>
+          {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}
+          <span className="span-interes">{tasaEnPorcentaje}</span>
+        </div>
+        <div>
+          <label className="label-interes">
+            Capital Final:
+            <input
+              className="input-interes"
+              type="text"
+              value={capitalFinal}
+              onChange={handleChangeFinal}
+            />
+          </label>
+          <span className="span-interes">{capitalFinalFormateado}</span>
+        </div>
+        {resultadoCalculo && (
+          <div>
+            <strong>Resultado:</strong>{" "}
+            <div className="span-interes-1">{resultadoCalculo}</div>
+          </div>
+        )}
+      </div>
+      <div className="contenedor-tabla">
         {datosCompletos && (
           <TablaInteresSimple
             capitalInicial={parseFloat(capitalInicial)}
@@ -185,6 +187,6 @@ export const InteresSimple = () => {
           />
         )}
       </div>
-    </div>
+    </>
   );
 };
