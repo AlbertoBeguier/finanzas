@@ -35,3 +35,15 @@
   padding: 10px, 0px, 0px, 10px;
   font-size: 1rem;
 }
+
+.tr-hover:hover {
+  background-color: rgba(100, 149, 237, 0.5);
+}
+
+.tr-multiplo-de-12 {
+  background-color: #3e499c;
+  color: white;
+}
+.tr-multiplo-de-12:hover {
+  color: black;
+}

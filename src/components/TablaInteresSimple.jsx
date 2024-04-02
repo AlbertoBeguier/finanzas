@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import "../styles/InteresSimpleyCompuesto.css";
 export const TablaInteresSimple = ({
   capitalInicial,
   tasaInteres,
@@ -37,8 +37,12 @@ export const TablaInteresSimple = ({
         <tbody>
           {[...Array(cantidadPeriodos).keys()].map((_, index) => {
             const fila = calcularFila(index + 1);
+            const esMultiploDe12 = fila.periodo % 12 === 0;
+            const trClasses = `tr-hover ${
+              esMultiploDe12 ? "tr-multiplo-de-12" : ""
+            }`;
             return (
-              <tr key={index}>
+              <tr key={index} className={trClasses}>
                 <td>{fila.periodo}</td>
                 <td>
                   {fila.capitalInicial.toLocaleString("es-AR", {
