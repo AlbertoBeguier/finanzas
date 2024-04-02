@@ -91,7 +91,7 @@ export const GraficoInflacionAcumulada = () => {
       },
       title: {
         display: true,
-        text: `Inflación Mensual - Últimos ${meses} Meses`,
+        text: `Inflación Acumulada - Últimos ${meses} Meses`,
       },
       // Configura las etiquetas de datos aquí
       datalabels: {
