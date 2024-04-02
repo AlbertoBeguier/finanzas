@@ -1,6 +1,7 @@
 import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
+import { TablaInteresSimple } from "./TablaInteresSimple";
 import "../styles/InteresSimpleyCompuesto.css";
 export const InteresSimple = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
@@ -16,6 +17,9 @@ export const InteresSimple = () => {
   ] = useTiempoDeLaOperacion("1", "mes");
   const [tasa, handleChangeTasa, mensajeError, tasaEnPorcentaje] =
     useTasaInteres(unidadTiempo);
+
+  // Verificar si todos los datos requeridos están presentes
+  const datosCompletos = capitalInicial && tasa && cantidadTiempo;
 
   const calcularVariableFaltante = () => {
     const Co = parseFloat(capitalInicial) || null;
@@ -172,6 +176,16 @@ export const InteresSimple = () => {
           <div className="span-interes-1">{resultadoCalculo}</div>
         </div>
       )}
+      <div>
+        {datosCompletos && (
+          <TablaInteresSimple
+            capitalInicial={parseFloat(capitalInicial)}
+            tasaInteres={parseFloat(tasa)}
+            cantidadPeriodos={parseFloat(cantidadTiempo)}
+          />
+        )}
+        ;
+      </div>
     </div>
   );
 };

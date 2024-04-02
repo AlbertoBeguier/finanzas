@@ -1,6 +1,7 @@
 import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
+import { TablaInteresCompuesto } from "./TablaInteresCompuesto";
 import "../styles/InteresSimpleyCompuesto.css";
 export const InteresCompuesto = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
@@ -16,6 +17,9 @@ export const InteresCompuesto = () => {
   ] = useTiempoDeLaOperacion("1", "mes");
   const [tasa, handleChangeTasa, mensajeError, tasaEnPorcentaje] =
     useTasaInteres(periodoCapitalizacion);
+
+  // Verificar si todos los datos requeridos están presentes
+  const datosCompletos = capitalInicial && tasa && cantidadTiempo;
 
   const calcularVariableFaltante = () => {
     const Co = parseFloat(capitalInicial) || null;
@@ -110,7 +114,9 @@ export const InteresCompuesto = () => {
             <option value="año">Año</option>
           </select>
         </label>
+        <span className="span-interes">{renderizarTiempo()}</span>
       </div>
+
       <div>
         <label className="label-interes">
           Cantidad de{" "}
@@ -136,6 +142,7 @@ export const InteresCompuesto = () => {
         </label>
         <span className="span-interes">{renderizarTiempo()}</span>
       </div>
+
       <div>
         <label className="label-interes">
           Tasa de Interés :
@@ -149,6 +156,7 @@ export const InteresCompuesto = () => {
         {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}
         <span className="span-interes">{tasaEnPorcentaje}</span>
       </div>
+
       <div>
         <label className="label-interes">
           Capital Final:
@@ -161,11 +169,21 @@ export const InteresCompuesto = () => {
         </label>
         <span className="span-interes">{capitalFinalFormateado}</span>
       </div>
+
       {resultadoCalculo && (
         <div>
-          <strong>Resultado:</strong>{" "}
+          <strong>Resultado:</strong>
           <div className="span-interes-1">{resultadoCalculo}</div>
         </div>
+      )}
+
+      {/* Solo muestra la tabla si todos los datos requeridos están presentes */}
+      {datosCompletos && (
+        <TablaInteresCompuesto
+          capitalInicial={parseFloat(capitalInicial)}
+          tasaInteres={parseFloat(tasa)}
+          cantidadPeriodos={parseInt(cantidadTiempo)}
+        />
       )}
     </div>
   );

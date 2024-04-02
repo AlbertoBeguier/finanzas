@@ -17,6 +17,7 @@ import { GraficoInflacionInteranual } from "./components/GraficoInflacionInteran
 
 // interes simple y compuesto
 
+import { TasaDeInteresNominal } from "./components/TasaDeInteresNominal";
 import { InteresSimple } from "./components/InteresSimple";
 import { InteresCompuesto } from "./components/InteresCompuesto";
 
@@ -74,9 +75,24 @@ function App() {
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="p-3 border bg-light rounded ">
+              <TasaDeInteresNominal />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="p-3 border bg-light rounded ">
+          <div className="row justify-content-center">
+            <div className="col-md-6">
               <InteresSimple />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="p-3 border bg-light rounded ">
               <InteresCompuesto />
