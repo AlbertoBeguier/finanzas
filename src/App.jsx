@@ -48,8 +48,20 @@ function App() {
       <GraficoInflacionAcumulada />
       <GraficoInflacionInteranual />
       <CotizacionBitcoin />
-      <InteresSimple />
-      <InteresCompuesto />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="p-3 border bg-light rounded ">
+              <InteresSimple />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="p-3 border bg-light rounded ">
+              <InteresCompuesto />
+            </div>
+          </div>
+        </div>
+      </div>
       <Footer />
     </>
   );

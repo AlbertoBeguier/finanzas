@@ -1,7 +1,7 @@
 import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
-
+import "../styles/InteresSimpleyCompuesto.css";
 export const InteresCompuesto = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
     useFormatPesosArgentinos();
@@ -83,23 +83,25 @@ export const InteresCompuesto = () => {
 
   return (
     <div>
-      <h1>Interés Compuesto</h1>
+      <h3>Interés Compuesto</h3>
       <div>
-        <label>
+        <label className="label-interes">
           Capital Inicial:
           <input
+            className="input-interes"
             type="text"
             value={capitalInicial}
             onChange={handleChangeInicial}
           />
         </label>
-        <span>{capitalInicialFormateado}</span>
+        <span className="span-interes">{capitalInicialFormateado}</span>
       </div>
 
       <div>
-        <label>
+        <label className="label-interes">
           Período de Capitalización:
           <select
+            className="select-interes"
             value={periodoCapitalizacion}
             onChange={handlePeriodoCapitalizacionChange}
           >
@@ -110,7 +112,7 @@ export const InteresCompuesto = () => {
         </label>
       </div>
       <div>
-        <label>
+        <label className="label-interes">
           Cantidad de{" "}
           {periodoCapitalizacion === "día"
             ? cantidadTiempo === "1"
@@ -125,36 +127,44 @@ export const InteresCompuesto = () => {
             : "Años"}
           :
           <input
+            className="input-interes-1"
             type="number"
             min="1"
             value={cantidadTiempo}
             onChange={handleCantidadTiempoChange}
           />
         </label>
-        <span>{renderizarTiempo()}</span>
+        <span className="span-interes">{renderizarTiempo()}</span>
       </div>
       <div>
-        <label>
-          Tasa de Interés (% mensual):
-          <input type="text" value={tasa} onChange={handleChangeTasa} />
+        <label className="label-interes">
+          Tasa de Interés :
+          <input
+            className="input-interes-2"
+            type="text"
+            value={tasa}
+            onChange={handleChangeTasa}
+          />
         </label>
         {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}
-        <span>{tasaEnPorcentaje}</span>
+        <span className="span-interes">{tasaEnPorcentaje}</span>
       </div>
       <div>
-        <label>
+        <label className="label-interes">
           Capital Final:
           <input
+            className="input-interes"
             type="text"
             value={capitalFinal}
             onChange={handleChangeFinal}
           />
         </label>
-        <span>{capitalFinalFormateado}</span>
+        <span className="span-interes">{capitalFinalFormateado}</span>
       </div>
       {resultadoCalculo && (
         <div>
-          <strong>Resultado:</strong> <span>{resultadoCalculo}</span>
+          <strong>Resultado:</strong>{" "}
+          <div className="span-interes-1">{resultadoCalculo}</div>
         </div>
       )}
     </div>
