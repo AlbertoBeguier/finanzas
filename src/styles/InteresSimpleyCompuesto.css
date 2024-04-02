@@ -28,7 +28,9 @@
   font-weight: 600;
 }
 .span-interes-1 {
-  color: orange;
+  color: white;
+  background-color: #3e499c;
+  border-radius: 5px;
   font-weight: 600;
   text-align: center;
   margin: 5px;
