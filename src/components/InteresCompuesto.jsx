@@ -2,20 +2,20 @@ import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
 
-export const InteresSimple = () => {
+export const InteresCompuesto = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
     useFormatPesosArgentinos();
   const [capitalFinal, handleChangeFinal, capitalFinalFormateado] =
     useFormatPesosArgentinos();
   const [
     cantidadTiempo,
-    unidadTiempo,
+    periodoCapitalizacion,
     handleCantidadTiempoChange,
-    handleUnidadTiempoChange,
+    handlePeriodoCapitalizacionChange,
     renderizarTiempo,
   ] = useTiempoDeLaOperacion("1", "mes");
   const [tasa, handleChangeTasa, mensajeError, tasaEnPorcentaje] =
-    useTasaInteres(unidadTiempo);
+    useTasaInteres(periodoCapitalizacion);
 
   const calcularVariableFaltante = () => {
     const Co = parseFloat(capitalInicial) || null;
@@ -26,8 +26,9 @@ export const InteresSimple = () => {
     let resultado = "";
     let intereses = null;
 
+    // Calcula el capital final si falta
     if (Co !== null && Cn === null && i !== null && n !== null) {
-      const CnCalculado = Co * (1 + i * n);
+      const CnCalculado = Co * Math.pow(1 + i, n);
       intereses = CnCalculado - Co;
       resultado = `Capital final: ${new Intl.NumberFormat("es-AR", {
         style: "currency",
@@ -36,8 +37,9 @@ export const InteresSimple = () => {
         style: "currency",
         currency: "ARS",
       }).format(intereses)}`;
+      // Calcula el capital inicial si falta
     } else if (Cn !== null && Co === null && i !== null && n !== null) {
-      const CoCalculado = Cn / (1 + i * n);
+      const CoCalculado = Cn / Math.pow(1 + i, n);
       intereses = Cn - CoCalculado;
       resultado = `Capital inicial: ${new Intl.NumberFormat("es-AR", {
         style: "currency",
@@ -46,8 +48,9 @@ export const InteresSimple = () => {
         style: "currency",
         currency: "ARS",
       }).format(intereses)}`;
+      // Calcula la tasa de interés si falta
     } else if (Co !== null && Cn !== null && i === null && n !== null) {
-      const iCalculado = (Cn - Co) / (Co * n);
+      const iCalculado = Math.pow(Cn / Co, 1 / n) - 1;
       intereses = Cn - Co;
       resultado = `Tasa de interés: ${(iCalculado * 100).toFixed(
         2
@@ -55,26 +58,19 @@ export const InteresSimple = () => {
         style: "currency",
         currency: "ARS",
       }).format(intereses)}`;
+      // Calcula la cantidad de tiempo si falta
     } else if (Co !== null && Cn !== null && i !== null && n === null) {
-      const nCalculado = (Cn / Co - 1) / i;
+      const nCalculado = Math.log(Cn / Co) / Math.log(1 + i);
       intereses = Cn - Co;
-
-      let unidadTiempoCorrecta;
-      if (nCalculado === 1) {
-        unidadTiempoCorrecta = unidadTiempo.endsWith("es")
-          ? unidadTiempo.slice(0, -2)
-          : unidadTiempo.slice(0, -1);
-      } else {
-        unidadTiempoCorrecta =
-          unidadTiempo === "mes" ? "meses" : unidadTiempo + "s";
-      }
-
       resultado = `Tiempo: ${nCalculado.toFixed(
         2
-      )} ${unidadTiempoCorrecta}. Intereses: ${new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-      }).format(intereses)}`;
+      )} ${periodoCapitalizacion}(es). Intereses: ${new Intl.NumberFormat(
+        "es-AR",
+        {
+          style: "currency",
+          currency: "ARS",
+        }
+      ).format(intereses)}`;
     } else {
       resultado =
         "Se requieren todos los datos excepto uno para calcular el resultado.";
@@ -87,7 +83,7 @@ export const InteresSimple = () => {
 
   return (
     <div>
-      <h1>Interés Simple</h1>
+      <h1>Interés Compuesto</h1>
       <div>
         <label>
           Capital Inicial:
@@ -102,8 +98,11 @@ export const InteresSimple = () => {
 
       <div>
         <label>
-          Unidad de Tiempo:
-          <select value={unidadTiempo} onChange={handleUnidadTiempoChange}>
+          Período de Capitalización:
+          <select
+            value={periodoCapitalizacion}
+            onChange={handlePeriodoCapitalizacionChange}
+          >
             <option value="día">Día</option>
             <option value="mes">Mes</option>
             <option value="año">Año</option>
@@ -113,11 +112,11 @@ export const InteresSimple = () => {
       <div>
         <label>
           Cantidad de{" "}
-          {unidadTiempo === "día"
+          {periodoCapitalizacion === "día"
             ? cantidadTiempo === "1"
               ? "Día"
               : "Días"
-            : unidadTiempo === "mes"
+            : periodoCapitalizacion === "mes"
             ? cantidadTiempo === "1"
               ? "Mes"
               : "Meses"
@@ -134,10 +133,9 @@ export const InteresSimple = () => {
         </label>
         <span>{renderizarTiempo()}</span>
       </div>
-
       <div>
         <label>
-          Tasa de Interés:
+          Tasa de Interés (% mensual):
           <input type="text" value={tasa} onChange={handleChangeTasa} />
         </label>
         {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}

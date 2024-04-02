@@ -15,9 +15,10 @@ import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
 import { GraficoInflacionInteranual } from "./components/GraficoInflacionInteranual";
 // ------------------------------------------ //
 
-// interes simple
+// interes simple y compuesto
 
 import { InteresSimple } from "./components/InteresSimple";
+import { InteresCompuesto } from "./components/InteresCompuesto";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
       <GraficoInflacionInteranual />
       <CotizacionBitcoin />
       <InteresSimple />
+      <InteresCompuesto />
       <Footer />
     </>
   );
