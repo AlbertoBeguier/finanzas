@@ -127,7 +127,6 @@ export const GraficoInflacionAcumulada = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };

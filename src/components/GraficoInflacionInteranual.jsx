@@ -143,7 +143,6 @@ export const GraficoInflacionInteranual = () => {
           </span>
         </>
       </div>
-      <hr />
     </>
   );
 };

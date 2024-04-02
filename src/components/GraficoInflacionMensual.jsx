@@ -148,7 +148,6 @@ export const GraficoInflacionMensual = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };

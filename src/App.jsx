@@ -24,30 +24,52 @@ function App() {
   return (
     <>
       <NavBar />
-      {/* Envolver los componentes en un contenedor y una fila de Bootstrap */}
+      <br />
+      <br />
       <div className="container">
         {" "}
         {/* Usa "container-fluid" si prefieres un ancho completo */}
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-md-6">
-            <InfoDolar />
+            <div className="p-3 border bg-light rounded ">
+              <InfoDolar />
+            </div>
           </div>
+
           <div className="col-md-6">
-            <InfoDolarAmbito />
+            <div className="p-3 border bg-light rounded ">
+              <InfoDolarAmbito />
+            </div>
           </div>
         </div>
-        <br />
-        <hr />
       </div>
       <GraficoCotizacionDolarOficialMensual />
       <GraficoCotizacionDolarBlueMensual />
       <GraficoCotizacionDolarBolsaMensual />
       <GraficoCotizacionDolarContadoConLiquiMensual />
-      <TasasPlazoFijo />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-9">
+            <div className="p-3 border bg-light rounded ">
+              <TasasPlazoFijo />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
       <GraficoInflacionMensual />
       <GraficoInflacionAcumulada />
       <GraficoInflacionInteranual />
-      <CotizacionBitcoin />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="p-3 border bg-light rounded ">
+              <CotizacionBitcoin />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">

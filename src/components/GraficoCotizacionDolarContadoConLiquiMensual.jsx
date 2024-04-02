@@ -132,7 +132,6 @@ export const GraficoCotizacionDolarContadoConLiquiMensual = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };

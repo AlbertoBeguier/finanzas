@@ -31,7 +31,6 @@ export const CotizacionBitcoin = () => {
           <p className="bitcoin-parrafo">{formatPrice(cotizacion.price)}</p>
         )}
       </div>
-      <hr />
     </>
   );
 };

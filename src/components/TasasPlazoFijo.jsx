@@ -77,8 +77,6 @@ export const TasasPlazoFijo = () => {
           </div>
         )}
       </div>
-      <br />
-      <hr />
     </>
   );
 };

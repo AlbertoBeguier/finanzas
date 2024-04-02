@@ -132,7 +132,6 @@ export const GraficoCotizacionDolarBlueMensual = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };

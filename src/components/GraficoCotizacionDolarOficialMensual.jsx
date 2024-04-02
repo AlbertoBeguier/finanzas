@@ -132,7 +132,6 @@ export const GraficoCotizacionDolarOficialMensual = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };

@@ -132,7 +132,6 @@ export const GraficoCotizacionDolarBolsaMensual = () => {
           </div>
         )}
       </div>
-      <hr />
     </>
   );
 };
