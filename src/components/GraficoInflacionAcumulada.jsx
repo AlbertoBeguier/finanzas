@@ -25,7 +25,7 @@ ChartJS.register(
 export const GraficoInflacionAcumulada = () => {
   const [dataInflacionAcumulada, setDataInflacionAcumulada] = useState([]);
   const [labels, setLabels] = useState([]);
-  const [meses, setMeses] = useState(12); // Estado inicial de 12 meses
+  const [meses, setMeses] = useState(3); // Estado inicial de 12 meses
 
   const chartContainerStyle = {
     padding: "20px",
