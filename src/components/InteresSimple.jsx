@@ -184,7 +184,6 @@ export const InteresSimple = () => {
             cantidadPeriodos={parseFloat(cantidadTiempo)}
           />
         )}
-        ;
       </div>
     </div>
   );
