@@ -115,7 +115,6 @@ export const InteresCompuesto = () => {
               <option value="año">Año</option>
             </select>
           </label>
-          <span className="span-interes">{renderizarTiempo()}</span>
         </div>
 
         <div>
