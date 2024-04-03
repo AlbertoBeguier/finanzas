@@ -46,7 +46,8 @@ export const InfoDolar = () => {
       const hoy = new Date();
       const ayer = new Date(hoy);
       ayer.setDate(ayer.getDate() - 1);
-      const inicioMes = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1);
+      const inicioMesActual = new Date(hoy.getFullYear(), hoy.getMonth(), 1); // Primer día del mes actual: 01/04/2024
+      const finMesAnterior = new Date(inicioMesActual - 1); // Restamos un día para obtener el último día del mes anterior: 31/03/2024
 
       const cotizacionAyer = encontrarCotizacionAntesDeFecha(
         cotizacionActual.casa,
@@ -54,7 +55,7 @@ export const InfoDolar = () => {
       );
       const cotizacionFinMes = encontrarCotizacionAntesDeFecha(
         cotizacionActual.casa,
-        inicioMes
+        finMesAnterior
       );
 
       // Calcular las variaciones si existen las cotizaciones para comparar
@@ -107,8 +108,7 @@ export const InfoDolar = () => {
           <table>
             <thead>
               <tr>
-                <th className="truco-columna"></th>{" "}
-                {/* Espacio vacío para alinear con las filas inferiores */}
+                <th className="truco-columna"></th>
                 <th className="truco-columna"></th>
                 <th className="truco-columna"></th>
                 <th className="truco-columna-1 group-header" colSpan="2">

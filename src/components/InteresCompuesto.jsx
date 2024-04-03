@@ -94,6 +94,7 @@ export const InteresCompuesto = () => {
             Capital Inicial:
             <input
               className="input-interes"
+              name="name-input-interes"
               type="text"
               value={capitalInicial}
               onChange={handleChangeInicial}
@@ -107,6 +108,7 @@ export const InteresCompuesto = () => {
             Período de Capitalización:
             <select
               className="select-interes"
+              name="name-select-interes"
               value={periodoCapitalizacion}
               onChange={handlePeriodoCapitalizacionChange}
             >
@@ -134,6 +136,7 @@ export const InteresCompuesto = () => {
             :
             <input
               className="input-interes-1"
+              name="name-input-interes-1 "
               type="number"
               min="1"
               value={cantidadTiempo}
@@ -148,6 +151,7 @@ export const InteresCompuesto = () => {
             Tasa de Interés :
             <input
               className="input-interes-2"
+              name="name-input-interes-2"
               type="text"
               value={tasa}
               onChange={handleChangeTasa}
@@ -162,6 +166,7 @@ export const InteresCompuesto = () => {
             Capital Final:
             <input
               className="input-interes"
+              name="name-input-interes"
               type="text"
               value={capitalFinal}
               onChange={handleChangeFinal}

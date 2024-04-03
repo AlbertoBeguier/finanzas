@@ -112,11 +112,11 @@ export const GraficoCotizacionDolarBlueMensual = () => {
     <>
       <div className="grafico-container" style={chartContainerStyle}>
         <h3>{`Cotización dólar blue - Últimos ${meses} Meses`}</h3>
-        <label htmlFor="meses">Seleccione la cantidad de meses: </label>
+        <label htmlFor="meses6">Seleccione la cantidad de meses: </label>
         <input
           className="input-meses"
           type="number"
-          id="meses"
+          id="meses6"
           value={meses}
           onChange={e => setMeses(e.target.value)}
           min="10" // meses mínimos en el gráfico

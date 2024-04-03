@@ -43,12 +43,14 @@ export const TasaDeInteresNominal = () => {
       <div className="contenedor-tasa-nominal">
         <input
           className="input-tasa-nominal"
+          name="name-tasa-nominal"
           type="number"
           placeholder="Tasa Nominal"
           value={tasaNominal}
           onChange={e => setTasaNominal(e.target.value)}
         />
         <select
+          name="select-tasa-nominal"
           className="select-tasa-nominal"
           value={periodo}
           onChange={e => setPeriodo(e.target.value)}
