@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import { InfoDolar } from "./components/InfoDolar";
-import { InfoDolarAmbito } from "./components/InfoDolarAmbito";
 import { GraficoCotizacionDolarOficialMensual } from "./components/GraficoCotizacionDolarOficialMensual";
 import { GraficoCotizacionDolarBlueMensual } from "./components/GraficoCotizacionDolarBlueMensual";
 import { GraficoCotizacionDolarBolsaMensual } from "./components/GraficoCotizacionDolarBolsaMensual";
@@ -27,19 +26,13 @@ function App() {
       <NavBar />
       <br />
       <br />
-      <div className="container">
+      <div className="container-fluid">
         {" "}
         {/* Usa "container-fluid" si prefieres un ancho completo */}
         <div className="row justify-content-center">
-          <div className="col-md-6">
+          <div className="col-md-10">
             <div className="p-3 border bg-light rounded ">
               <InfoDolar />
-            </div>
-          </div>
-
-          <div className="col-md-6">
-            <div className="p-3 border bg-light rounded ">
-              <InfoDolarAmbito />
             </div>
           </div>
         </div>

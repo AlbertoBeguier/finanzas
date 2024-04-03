@@ -2,36 +2,136 @@ import { useEffect, useState } from "react";
 import "../styles/InfoDolar.css";
 
 export const InfoDolar = () => {
-  const [dataDolar, setDataDolar] = useState(null);
+  const [dataActual, setDataActual] = useState([]);
+  const [datosHistoricos, setDatosHistoricos] = useState([]);
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch("https://dolarapi.com/v1/dolares")
-      .then(response => response.json())
-      .then(data => {
-        setDataDolar(data);
-      })
-      .catch(error => {
-        console.error("Error fetching data: ", error);
-      });
+    // Función para cargar los datos actuales de las cotizaciones del dólar
+    const cargarDatosActuales = async () => {
+      const respuesta = await fetch("https://dolarapi.com/v1/dolares");
+      const datos = await respuesta.json();
+      setDataActual(datos);
+    };
+
+    // Función para cargar los datos históricos de las cotizaciones del dólar
+    const cargarDatosHistoricos = async () => {
+      const respuesta = await fetch(
+        "https://api.argentinadatos.com/v1/cotizaciones/dolares"
+      );
+      const datos = await respuesta.json();
+      setDatosHistoricos(datos);
+    };
+
+    // Ejecutar ambas cargas en paralelo y cambiar el estado de 'cargando' a false una vez completadas
+    Promise.all([cargarDatosActuales(), cargarDatosHistoricos()]).then(() =>
+      setCargando(false)
+    );
   }, []);
+
+  // Función para encontrar la cotización más reciente antes de una fecha dada para cada 'casa'
+  const encontrarCotizacionAntesDeFecha = (casa, fecha) => {
+    // Filtrar por 'casa' y ordenar por fecha de forma descendente
+    const cotizaciones = datosHistoricos
+      .filter(c => c.casa === casa && new Date(c.fecha) < fecha)
+      .sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    // Retornar la cotización más reciente o undefined si no se encuentra ninguna
+    return cotizaciones[0];
+  };
+
+  // Función para calcular las variaciones diaria y mensual
+  const calcularVariaciones = () => {
+    return dataActual.map(cotizacionActual => {
+      const hoy = new Date();
+      const ayer = new Date(hoy);
+      ayer.setDate(ayer.getDate() - 1);
+      const inicioMes = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1);
+
+      const cotizacionAyer = encontrarCotizacionAntesDeFecha(
+        cotizacionActual.casa,
+        ayer
+      );
+      const cotizacionFinMes = encontrarCotizacionAntesDeFecha(
+        cotizacionActual.casa,
+        inicioMes
+      );
+
+      // Calcular las variaciones si existen las cotizaciones para comparar
+      const variacionDiariaCompra = cotizacionAyer
+        ? (
+            ((cotizacionActual.compra - cotizacionAyer.compra) /
+              cotizacionAyer.compra) *
+            100
+          ).toFixed(2)
+        : "N/A";
+      const variacionDiariaVenta = cotizacionAyer
+        ? (
+            ((cotizacionActual.venta - cotizacionAyer.venta) /
+              cotizacionAyer.venta) *
+            100
+          ).toFixed(2)
+        : "N/A";
+      const variacionMensualCompra = cotizacionFinMes
+        ? (
+            ((cotizacionActual.compra - cotizacionFinMes.compra) /
+              cotizacionFinMes.compra) *
+            100
+          ).toFixed(2)
+        : "N/A";
+      const variacionMensualVenta = cotizacionFinMes
+        ? (
+            ((cotizacionActual.venta - cotizacionFinMes.venta) /
+              cotizacionFinMes.venta) *
+            100
+          ).toFixed(2)
+        : "N/A";
+
+      return {
+        ...cotizacionActual,
+        variacionDiariaCompra,
+        variacionDiariaVenta,
+        variacionMensualCompra,
+        variacionMensualVenta,
+      };
+    });
+  };
+
+  const datosConVariaciones = !cargando ? calcularVariaciones() : [];
 
   return (
     <div>
-      {dataDolar ? (
+      {!cargando ? (
         <>
           <h3>Cotización Dólar</h3>
           <table>
             <thead>
               <tr>
-                <th style={{ textAlign: "left" }}>Tipo</th>
-                <th style={{ textAlign: "center" }}>Compra</th>
-                <th style={{ textAlign: "center" }}>Venta</th>
+                <th className="truco-columna"></th>{" "}
+                {/* Espacio vacío para alinear con las filas inferiores */}
+                <th className="truco-columna"></th>
+                <th className="truco-columna"></th>
+                <th className="truco-columna-1 group-header" colSpan="2">
+                  Variación Diaria
+                </th>
+                <th className="truco-columna-1 group-header" colSpan="2">
+                  Variación Mensual
+                </th>
+              </tr>
+              <tr>
+                <th>Tipo</th>
+                <th className="tit-col">Compra</th>
+                <th className="tit-col">Venta</th>
+                <th className="truco-columna-1">Compra</th>
+                <th className="truco-columna-1">Venta</th>
+                <th className="truco-columna-1">Compra</th>
+                <th className="truco-columna-1">Venta</th>
               </tr>
             </thead>
             <tbody>
-              {dataDolar.map((item, index) => (
+              {datosConVariaciones.map((item, index) => (
                 <tr key={index}>
-                  <td className="text-uppercase">{item.nombre}</td>
+                  <td>{item.nombre}</td>
                   <td>
                     {new Intl.NumberFormat("es-AR", {
                       style: "currency",
@@ -43,6 +143,50 @@ export const InfoDolar = () => {
                       style: "currency",
                       currency: "ARS",
                     }).format(item.venta)}
+                  </td>
+                  <td
+                    style={{
+                      color:
+                        item.variacionDiariaCompra !== "N/A" &&
+                        item.variacionDiariaCompra >= 0
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    {item.variacionDiariaCompra}%
+                  </td>
+                  <td
+                    style={{
+                      color:
+                        item.variacionDiariaVenta !== "N/A" &&
+                        item.variacionDiariaVenta >= 0
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    {item.variacionDiariaVenta}%
+                  </td>
+                  <td
+                    style={{
+                      color:
+                        item.variacionMensualCompra !== "N/A" &&
+                        item.variacionMensualCompra >= 0
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    {item.variacionMensualCompra}%
+                  </td>
+                  <td
+                    style={{
+                      color:
+                        item.variacionMensualVenta !== "N/A" &&
+                        item.variacionMensualVenta >= 0
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    {item.variacionMensualVenta}%
                   </td>
                 </tr>
               ))}

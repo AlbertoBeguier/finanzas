@@ -32,10 +32,10 @@
 }
 
 table {
-  width: auto; /* Cambio para ajustar al contenido máximo */
-  margin: 20px auto; /* Centra la tabla horizontalmente */
-  border-collapse: separate; /* Cambio para permitir espaciado entre celdas */
-  border-spacing: 20px 0; /* Espaciado horizontal de 20px y vertical de 0 */
+  width: auto;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 20px 0;
 }
 
 th,
@@ -48,15 +48,17 @@ th {
   background-color: #3e499c;
   color: white;
   border-radius: 5px;
+  font-size: 15px;
 }
 
 td {
-  text-align: right; /* Alinea el texto de las celdas a la derecha */
+  text-align: right;
   font-weight: 500;
+  font-size: 15px;
 }
 
 td:first-child {
-  text-align: left; /* Alinea el texto de la primera celda de cada fila a la izquierda */
+  text-align: left;
 }
 
 tr:hover {
@@ -70,6 +72,35 @@ h3 {
   margin: 20px 0;
 }
 
+.tit-col {
+  text-align: center;
+}
+
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.truco-columna,
+.truco-columna-1 {
+  background-color: transparent;
+  border-color: transparent;
+  color: #3e499c; /* Resaltado para títulos de las columnas de variaciones */
+  text-align: center;
+  padding: 0px;
+}
+
+/* Ajuste para separar visualmente los grupos de columnas de variaciones */
+.truco-columna-1 th {
+  padding: 0 10px; /* Espaciado horizontal para títulos de variaciones */
+}
+
+.group-header {
+  background-color: #3e499c;
+  color: white;
+  font-size: 15px;
+}
+
+/* Ajuste para alinear los encabezados de grupo ('Variación Diaria' y 'Variación Mensual') con sus subcolumnas */
+.group-header th {
+  padding: 8px 20px;
 }
