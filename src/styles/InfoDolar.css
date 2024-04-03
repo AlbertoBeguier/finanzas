@@ -61,10 +61,6 @@ td:first-child {
   text-align: left;
 }
 
-tr:hover {
-  background-color: rgba(100, 149, 237, 0.5);
-}
-
 h3 {
   color: #3e499c;
   font-weight: 600;
@@ -103,4 +99,8 @@ h3 {
 /* Ajuste para alinear los encabezados de grupo ('Variación Diaria' y 'Variación Mensual') con sus subcolumnas */
 .group-header th {
   padding: 8px 20px;
+}
+
+tbody tr:hover {
+  background-color: rgba(100, 149, 237, 0.5);
 }
