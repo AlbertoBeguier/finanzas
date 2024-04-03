@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/InfoDolar.css";
+import Decimal from "decimal.js";
 
 export const InfoDolar = () => {
   const [dataActual, setDataActual] = useState([]);
@@ -60,34 +61,36 @@ export const InfoDolar = () => {
 
       // Calcular las variaciones si existen las cotizaciones para comparar
       const variacionDiariaCompra = cotizacionAyer
-        ? (
-            ((cotizacionActual.compra - cotizacionAyer.compra) /
-              cotizacionAyer.compra) *
-            100
-          ).toFixed(2)
-        : "N/A";
-      const variacionDiariaVenta = cotizacionAyer
-        ? (
-            ((cotizacionActual.venta - cotizacionAyer.venta) /
-              cotizacionAyer.venta) *
-            100
-          ).toFixed(2)
-        : "N/A";
-      const variacionMensualCompra = cotizacionFinMes
-        ? (
-            ((cotizacionActual.compra - cotizacionFinMes.compra) /
-              cotizacionFinMes.compra) *
-            100
-          ).toFixed(2)
-        : "N/A";
-      const variacionMensualVenta = cotizacionFinMes
-        ? (
-            ((cotizacionActual.venta - cotizacionFinMes.venta) /
-              cotizacionFinMes.venta) *
-            100
-          ).toFixed(2)
+        ? new Decimal(cotizacionActual.compra)
+            .minus(cotizacionAyer.compra)
+            .dividedBy(cotizacionAyer.compra)
+            .times(100)
+            .toFixed(2)
         : "N/A";
 
+      const variacionDiariaVenta = cotizacionAyer
+        ? new Decimal(cotizacionActual.venta)
+            .minus(cotizacionAyer.venta)
+            .dividedBy(cotizacionAyer.venta)
+            .times(100)
+            .toFixed(2)
+        : "N/A";
+
+      const variacionMensualCompra = cotizacionFinMes
+        ? new Decimal(cotizacionActual.compra)
+            .minus(cotizacionFinMes.compra)
+            .dividedBy(cotizacionFinMes.compra)
+            .times(100)
+            .toFixed(2)
+        : "N/A";
+
+      const variacionMensualVenta = cotizacionFinMes
+        ? new Decimal(cotizacionActual.venta)
+            .minus(cotizacionFinMes.venta)
+            .dividedBy(cotizacionFinMes.venta)
+            .times(100)
+            .toFixed(2)
+        : "N/A";
       return {
         ...cotizacionActual,
         variacionDiariaCompra,

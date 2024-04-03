@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/CotizacionBitcoin.css";
+import Decimal from "decimal.js";
 
 export const CotizacionBitcoin = () => {
   // Estado para Bitcoin
@@ -48,13 +49,21 @@ export const CotizacionBitcoin = () => {
 
         // Calcula las variaciones
         const yesterdayPrice = prices[prices.length - 2][1];
-        const dailyVariation =
-          ((currentPrice - yesterdayPrice) / yesterdayPrice) * 100;
+        const dailyVariation = new Decimal(currentPrice)
+          .minus(new Decimal(yesterdayPrice))
+          .dividedBy(new Decimal(yesterdayPrice))
+          .times(100);
         const monthlyVariation = lastMonthPrice
-          ? ((currentPrice - lastMonthPrice) / lastMonthPrice) * 100
-          : null;
-        const annualVariation =
-          ((currentPrice - priceOneYearAgo) / priceOneYearAgo) * 100;
+          ? new Decimal(currentPrice)
+              .minus(new Decimal(lastMonthPrice))
+              .dividedBy(new Decimal(lastMonthPrice))
+              .times(100)
+          : new Decimal(0);
+
+        const annualVariation = new Decimal(currentPrice)
+          .minus(new Decimal(priceOneYearAgo))
+          .dividedBy(new Decimal(priceOneYearAgo))
+          .times(100);
 
         // Asigna los valores al estado correspondiente
         if (coin === "bitcoin") {
@@ -85,7 +94,7 @@ export const CotizacionBitcoin = () => {
   };
 
   const formatVariacion = variacion => {
-    return variacion ? variacion.toFixed(2) + "%" : "N/A";
+    return variacion ? variacion.toFixed(2) + "%" : "N/A"; // `variacion` ya es una instancia de Decimal aquí
   };
 
   const getColorClass = value => {
