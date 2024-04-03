@@ -1,17 +1,20 @@
 import { useState } from "react";
 import logo from "../assets/logoEstudio.png";
 import whatsappIcon from "../assets/whatsapp.png";
+import { obtenerFechaActual } from "../utilities/fechaActual.js";
 import "../styles/NavBar.css";
 
 export const NavBar = () => {
   const [showContact, setShowContact] = useState(true);
+  const [showDate, setShowDate] = useState(true);
 
   // Función para manejar el clic en el botón de contacto
   const handleContactClick = () => {
     setShowContact(false); // Oculta el botón de contacto de inmediato
     setTimeout(() => {
       setShowContact(true);
-    }, 10000); // Remuestra el botón de contacto después de 10 segundos
+      setShowDate(true); // Muestra la fecha
+    }, 10000);
   };
 
   return (
@@ -44,6 +47,10 @@ export const NavBar = () => {
             </li>
           )}
         </ul>
+        {/* Condicional para mostrar u ocultar la fecha */}
+        {showDate && (
+          <span className="fecha-actual"> {obtenerFechaActual()}</span>
+        )}
       </nav>
     </div>
   );
