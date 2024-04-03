@@ -10,7 +10,10 @@ export const NavBar = () => {
 
   // Función para manejar el clic en el botón de contacto
   const handleContactClick = () => {
-    setShowContact(false); // Oculta el botón de contacto de inmediato
+    setShowContact(false); // Oculta el botón de contacto
+    setShowDate(false); // Oculta la fecha
+
+    // Después de 10 segundos, cambia el estado de nuevo para mostrar el botón de contacto y la fecha
     setTimeout(() => {
       setShowContact(true);
       setShowDate(true); // Muestra la fecha
