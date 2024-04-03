@@ -6,9 +6,17 @@
 }
 
 .bitcoin-parrafo {
-  color: orange;
   font-weight: 600;
   text-align: center;
   margin: 20px 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  color: #3e499c;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
