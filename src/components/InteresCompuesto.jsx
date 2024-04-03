@@ -88,7 +88,7 @@ export const InteresCompuesto = () => {
   return (
     <>
       <div>
-        <h3>Interés Compuesto</h3>
+        <h3 className="titulo-interes">Interés Compuesto</h3>
         <div>
           <label className="label-interes">
             Capital Inicial:

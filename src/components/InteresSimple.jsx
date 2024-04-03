@@ -92,7 +92,7 @@ export const InteresSimple = () => {
   return (
     <>
       <div>
-        <h3>Interés Simple</h3>
+        <h3 className="titulo-interes">Interés Simple</h3>
         <div>
           <label className="label-interes">
             Capital Inicial:

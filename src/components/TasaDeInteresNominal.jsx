@@ -39,7 +39,7 @@ export const TasaDeInteresNominal = () => {
 
   return (
     <div>
-      <h3>Tasa Nominal</h3>
+      <h5 className="titulo-tasa-nominal">Tasa Nominal</h5>
       <div className="contenedor-tasa-nominal">
         <input
           className="input-tasa-nominal"
@@ -62,10 +62,10 @@ export const TasaDeInteresNominal = () => {
         </button>
       </div>
       <br />
-      <div className="contenedor-padre-tasa-nominal-1">
-        <div className="contenedor-tasa-nominal-1">
-          {/* Condición para mostrar resultados */}
-          {mostrarResultados && (
+      {/* Aplicar la condición para mostrar todo el contenedor de resultados */}
+      {mostrarResultados && (
+        <div className="contenedor-padre-tasa-nominal-1">
+          <div className="contenedor-tasa-nominal-1">
             <>
               <p>
                 Tasa Anual: {tasaAnual} (
@@ -80,9 +80,9 @@ export const TasaDeInteresNominal = () => {
                 {(parseFloat(tasaDiaria) * 100).toFixed(2)} %)
               </p>
             </>
-          )}
+          </div>
         </div>
-      </div>
+      )}
       <br />
     </div>
   );

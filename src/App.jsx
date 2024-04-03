@@ -72,29 +72,26 @@ function App() {
       </div>
       <br />
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <div className="p-3 border bg-light rounded ">
-              <TasaDeInteresNominal />
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-      <div className="container">
         <div className="p-3 border bg-light rounded ">
           <div className="row justify-content-center">
-            <div className="col-md-6">
+            <div className="col-4">
+              <TasaDeInteresNominal />
+            </div>
+            <div className="col-8">
               <InteresSimple />
             </div>
           </div>
         </div>
       </div>
+
       <br />
       <div className="container">
         <div className="p-3 border bg-light rounded ">
           <div className="row justify-content-center">
-            <div className="col-md-6">
+            <div className="col-4">
+              <TasaDeInteresNominal />
+            </div>
+            <div className="col-8">
               <InteresCompuesto />
             </div>
           </div>
