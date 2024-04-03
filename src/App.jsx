@@ -30,7 +30,7 @@ function App() {
         {" "}
         {/* Usa "container-fluid" si prefieres un ancho completo */}
         <div className="row justify-content-center">
-          <div className="col-md-10">
+          <div className="col-md-8">
             <div className="p-3 border bg-light rounded ">
               <InfoDolar />
             </div>
