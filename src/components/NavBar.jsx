@@ -20,13 +20,18 @@ export const NavBar = () => {
     }, 10000);
   };
 
+  const handleContactClick1 = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg justify-content-center">
         <span className="navbar-brand">
           <img
+            onClick={handleContactClick1}
             src={logo}
-            className="d-inline-block align-top"
+            className="d-inline-block align-top logo-estudio"
             alt="Logo del estudio"
           />
         </span>

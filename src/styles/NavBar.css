@@ -59,3 +59,7 @@ body {
   color: #3e499c;
   font-weight: 600;
 }
+
+.logo-estudio {
+  cursor: pointer;
+}
