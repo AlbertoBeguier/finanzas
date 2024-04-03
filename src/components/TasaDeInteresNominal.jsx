@@ -44,7 +44,7 @@ export const TasaDeInteresNominal = () => {
         <input
           className="input-tasa-nominal"
           type="number"
-          placeholder="TNominal"
+          placeholder="Tasa Nominal"
           value={tasaNominal}
           onChange={e => setTasaNominal(e.target.value)}
         />

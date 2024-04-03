@@ -32,7 +32,7 @@ export const TablaInteresCompuesto = ({
 
   return (
     <div>
-      <h3>Tabla de Interés Compuesto</h3>
+      <h3 className="tabla-interes-titulo">Tabla de Interés Compuesto</h3>
       <table>
         <thead>
           <tr>
@@ -53,11 +53,19 @@ export const TablaInteresCompuesto = ({
             }`;
             return (
               <tr key={periodo} className={trClasses}>
-                <td>{periodo + 1}</td>
-                <td>{formatearPesosArgentinos(fila.capitalInicial)}</td>
-                <td>{formatearPesosArgentinos(fila.interesesPeriodo)}</td>
-                <td>{formatearPesosArgentinos(fila.capitalFinal)}</td>
-                <td>{(fila.rendimientoEfectivo * 100).toFixed(2)}%</td>
+                <td className="tabla-interes-filas">{periodo + 1}</td>
+                <td className="tabla-interes-filas">
+                  {formatearPesosArgentinos(fila.capitalInicial)}
+                </td>
+                <td className="tabla-interes-filas">
+                  {formatearPesosArgentinos(fila.interesesPeriodo)}
+                </td>
+                <td className="tabla-interes-filas">
+                  {formatearPesosArgentinos(fila.capitalFinal)}
+                </td>
+                <td className="tabla-interes-filas">
+                  {(fila.rendimientoEfectivo * 100).toFixed(2)}%
+                </td>
               </tr>
             );
           })}

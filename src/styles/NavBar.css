@@ -55,7 +55,7 @@ body {
 .fecha-actual {
   margin: 5px;
   padding: 5px;
-  font-size: 12px;
+  font-size: 1rem;
   color: #3e499c;
   font-weight: 600;
 }

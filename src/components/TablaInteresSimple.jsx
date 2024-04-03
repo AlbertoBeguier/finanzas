@@ -22,7 +22,7 @@ export const TablaInteresSimple = ({
 
   return (
     <div>
-      <h3>Tabla Interés Simple</h3>
+      <h3 className="tabla-interes-titulo">Tabla Interés Simple</h3>
       <table>
         <thead>
           <tr>
@@ -43,8 +43,8 @@ export const TablaInteresSimple = ({
             }`;
             return (
               <tr key={index} className={trClasses}>
-                <td>{fila.periodo}</td>
-                <td>
+                <td className="tabla-interes-filas">{fila.periodo}</td>
+                <td className="tabla-interes-filas">
                   {fila.capitalInicial.toLocaleString("es-AR", {
                     style: "currency",
                     currency: "ARS",
@@ -52,7 +52,7 @@ export const TablaInteresSimple = ({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td>
+                <td className="tabla-interes-filas">
                   {fila.interes1.toLocaleString("es-AR", {
                     style: "currency",
                     currency: "ARS",
@@ -60,7 +60,7 @@ export const TablaInteresSimple = ({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td>
+                <td className="tabla-interes-filas">
                   {fila.interes.toLocaleString("es-AR", {
                     style: "currency",
                     currency: "ARS",
@@ -68,7 +68,7 @@ export const TablaInteresSimple = ({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td>
+                <td className="tabla-interes-filas">
                   {fila.capitalFinal.toLocaleString("es-AR", {
                     style: "currency",
                     currency: "ARS",
@@ -76,7 +76,9 @@ export const TablaInteresSimple = ({
                     maximumFractionDigits: 2,
                   })}
                 </td>
-                <td>{(fila.rendimientoEfectivo * 100).toFixed(2)}%</td>
+                <td className="tabla-interes-filas">
+                  {(fila.rendimientoEfectivo * 100).toFixed(2)}%
+                </td>
               </tr>
             );
           })}

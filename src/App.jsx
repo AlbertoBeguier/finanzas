@@ -71,27 +71,26 @@ function App() {
         </div>
       </div>
       <br />
-      <div className="container">
+      <div className="container-fluid">
         <div className="p-3 border bg-light rounded ">
           <div className="row justify-content-center">
             <div className="col-4">
               <TasaDeInteresNominal />
             </div>
-            <div className="col-8">
+            <div className="col-6">
               <InteresSimple />
             </div>
           </div>
         </div>
       </div>
-
       <br />
-      <div className="container">
+      <div className="container-fluid">
         <div className="p-3 border bg-light rounded ">
           <div className="row justify-content-center">
             <div className="col-4">
               <TasaDeInteresNominal />
             </div>
-            <div className="col-8">
+            <div className="col-6">
               <InteresCompuesto />
             </div>
           </div>

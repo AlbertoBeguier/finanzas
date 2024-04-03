@@ -91,7 +91,7 @@ export const InteresSimple = () => {
 
   return (
     <>
-      <div>
+      <div className="contenedor-interes">
         <h3 className="titulo-interes">Interés Simple</h3>
         <div>
           <label className="label-interes">

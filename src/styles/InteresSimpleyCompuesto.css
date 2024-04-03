@@ -64,7 +64,25 @@
   align-items: center;
 }
 
+.tabla-interes-titulo {
+  font-size: 26px;
+  color: #3e499c;
+  text-align: center;
+}
 .tabla-interes-titulo-columna {
   text-align: center;
   white-space: nowrap;
+  font-size: 16px;
+}
+.tabla-interes-filas {
+  font-size: 16px;
+}
+.contenedor-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-interes {
+  padding-left: 80px;
 }
