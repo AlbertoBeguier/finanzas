@@ -33,6 +33,11 @@ export const GraficoCotizacionDolarBolsaMensual = () => {
     boxSizing: "border-box",
   };
   useEffect(() => {
+    const hoy = new Date();
+    const mesActual = `${hoy.getFullYear()}-${String(
+      hoy.getMonth() + 1
+    ).padStart(2, "0")}`;
+
     fetch("https://api.argentinadatos.com/v1/cotizaciones/dolares")
       .then(response => response.json())
       .then(data => {
@@ -41,7 +46,11 @@ export const GraficoCotizacionDolarBolsaMensual = () => {
           if (casa === "bolsa") {
             const [año, mes] = fecha.split("-").slice(0, 2);
             const clave = `${año}-${mes}`;
-            if (!datosPorMes[clave] || datosPorMes[clave].fecha < fecha) {
+            if (
+              clave !== mesActual &&
+              (!datosPorMes[clave] || datosPorMes[clave].fecha < fecha)
+            ) {
+              // Excluye el mes actual durante el procesamiento de datos
               datosPorMes[clave] = { compra, venta, fecha };
             }
           }

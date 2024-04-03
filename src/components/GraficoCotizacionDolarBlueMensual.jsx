@@ -33,6 +33,11 @@ export const GraficoCotizacionDolarBlueMensual = () => {
     boxSizing: "border-box",
   };
   useEffect(() => {
+    const hoy = new Date();
+    const mesActual = `${hoy.getFullYear()}-${String(
+      hoy.getMonth() + 1
+    ).padStart(2, "0")}`;
+
     fetch("https://api.argentinadatos.com/v1/cotizaciones/dolares")
       .then(response => response.json())
       .then(data => {
@@ -41,7 +46,11 @@ export const GraficoCotizacionDolarBlueMensual = () => {
           if (casa === "blue") {
             const [año, mes] = fecha.split("-").slice(0, 2);
             const clave = `${año}-${mes}`;
-            if (!datosPorMes[clave] || datosPorMes[clave].fecha < fecha) {
+            if (
+              clave !== mesActual &&
+              (!datosPorMes[clave] || datosPorMes[clave].fecha < fecha)
+            ) {
+              // Excluye el mes actual al verificar si `clave` no es igual a `mesActual`
               datosPorMes[clave] = { compra, venta, fecha };
             }
           }
@@ -53,7 +62,6 @@ export const GraficoCotizacionDolarBlueMensual = () => {
       })
       .catch(error => console.error("Error fetching data: ", error));
   }, [meses]);
-
   const chartData = {
     labels: datosCotizacion.map(item => {
       const date = new Date(item.fecha); // Asume que item.fecha está en un formato compatible
