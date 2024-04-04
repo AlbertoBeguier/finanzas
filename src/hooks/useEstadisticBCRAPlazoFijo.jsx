@@ -1,28 +1,23 @@
 import { useState, useEffect } from "react";
 
 export function useEstadisticBCRAPlazoFijo() {
-  const [cotizaciones, setCotizaciones] = useState([]);
+  const [tasasPorMes, setTasasPorMes] = useState({});
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/tasa_depositos_30_dias", {
-          method: "GET",
-          headers: {
-            Authorization:
-              "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3Njg4MzUsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJhYWJlZ3VpZXJAaG90bWFpbC5jb20ifQ.YF00kDQ75v7KO0cmEgltmYyWSDr-j1laK_pXyJC11yqV7wisfgw6hJGcDHGPZ9QKD8Q0TmjfVAuxPg8TkdJlwg",
-          },
-        });
-
+        const response = await fetch(
+          "https://api.argentinadatos.com/v1/finanzas/tasas/depositos30Dias"
+        );
         if (!response.ok) {
-          throw new Error("La solicitud a la API del BCRA falló");
+          throw new Error("La solicitud a la API falló");
         }
 
         const datos = await response.json();
-        setCotizaciones(datos);
+        const datosProcesados = procesarDatos(datos);
+        setTasasPorMes(datosProcesados);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -33,5 +28,25 @@ export function useEstadisticBCRAPlazoFijo() {
     fetchData();
   }, []);
 
-  return { cotizaciones, error, isLoading };
+  return { tasasPorMes, error, isLoading };
+}
+
+// Función para procesar los datos y agruparlos por mes, excluyendo el mes actual
+function procesarDatos(datos) {
+  const mesActual = new Date().toISOString().slice(0, 7); // Formato AAAA-MM
+  const tasasPorMes = datos.reduce((acumulador, { fecha, valor }) => {
+    const mes = fecha.slice(0, 7); // Obtiene el AAAA-MM de la fecha
+
+    if (mes !== mesActual) {
+      // Excluye el mes actual
+      if (!acumulador[mes]) {
+        acumulador[mes] = [];
+      }
+      acumulador[mes].push(valor);
+    }
+
+    return acumulador;
+  }, {});
+
+  return tasasPorMes;
 }

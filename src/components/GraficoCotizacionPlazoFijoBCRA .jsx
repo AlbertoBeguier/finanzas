@@ -25,89 +25,86 @@ ChartJS.register(
 );
 
 export const GraficoCotizacionPlazoFijoBCRA = () => {
-  const { cotizaciones, error, isLoading } = useEstadisticBCRAPlazoFijo();
+  const { tasasPorMes, error, isLoading } = useEstadisticBCRAPlazoFijo();
   const [meses, setMeses] = useState(12);
   const chartContainerStyle = {
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)", // Asegura que el gráfico no exceda el ancho disponible.
-    minWidth: "33%", // Asegura que el gráfico ocupe al menos un 33% de la pantalla.
-    width: `max(${Math.max(meses * 70, 300)}px, 33%)`, // Utiliza el mayor valor entre el cálculo basado en meses y el 33% de la pantalla.
+    maxWidth: "calc(100% - 40px)",
+    minWidth: "33%",
+    width: `max(${Math.max(meses * 70, 300)}px, 33%)`,
     boxSizing: "border-box",
   };
 
   const datosGrafico = useMemo(() => {
-    if (!isLoading && !error && cotizaciones.length > 0) {
-      const fechaLimite = new Date();
-      fechaLimite.setMonth(fechaLimite.getMonth() - meses);
-      const cotizacionesFiltradas = cotizaciones.filter(
-        ({ d }) => new Date(d) >= fechaLimite
-      );
+    if (!isLoading && !error && Object.keys(tasasPorMes).length > 0) {
+      const mesesSeleccionados = Object.keys(tasasPorMes).sort().slice(-meses);
 
-      const agrupadoPorMes = cotizacionesFiltradas.reduce((acc, { d, v }) => {
-        const mes = d.slice(0, 7); // Año-Mes
-        if (!acc[mes]) {
-          acc[mes] = [];
-        }
-        acc[mes].push(v);
-        return acc;
-      }, {});
-
-      const labels = Object.keys(agrupadoPorMes).map(fecha => {
-        const [year, month] = fecha.split("-");
-        return new Date(year, month - 1)
-          .toLocaleDateString("es-ES", {
+      const labels = mesesSeleccionados.map(mes => {
+        const [year, month] = mes.split("-");
+        const date = new Date(year, month - 1); // Los meses en JavaScript empiezan en 0
+        return date
+          .toLocaleDateString("es-AR", {
             month: "short",
             year: "numeric",
           })
-          .replace(".", "");
+          .replace(".", ""); // Elimina el punto final en la abreviatura del mes
       });
 
-      const valores = Object.values(agrupadoPorMes).map(valores => {
-        const sum = valores.reduce((acc, val) => acc + val, 0);
-        return sum / valores.length;
+      const valores = mesesSeleccionados.map(mes => {
+        const tasasMes = tasasPorMes[mes];
+        return (
+          (tasasMes.reduce((acc, curr) => acc + curr, 0) / tasasMes.length) *
+          100
+        );
       });
+
+      // Determina los valores máximos y mínimos
+      const maxValue = Math.max(...valores);
+      const minValue = Math.min(...valores);
 
       return {
         labels,
         datasets: [
           {
-            label: "Promedio Mensual",
+            label: "Tasa Promedio Mensual (%)",
             data: valores,
-            backgroundColor: valores.map(value =>
-              value === Math.max(...valores)
-                ? "rgba(204, 250, 205, 0.5)"
-                : value === Math.min(...valores)
-                ? "rgba(250, 211, 211, 0.5)"
-                : "rgba(54, 162, 235, 0.5)"
-            ),
+            backgroundColor: valores.map(value => {
+              if (value === maxValue) {
+                return "rgba(204, 250, 205, 0.5)"; // Verde para el máximo
+              } else if (value === minValue) {
+                return "rgba(250, 211, 211, 0.5)"; // Rojo para el mínimo
+              }
+              return "rgba(54, 162, 235, 0.5)"; // Azul para los demás valores
+            }),
             borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
+            borderWidth: 2,
           },
         ],
       };
     }
     return { labels: [], datasets: [] };
-  }, [isLoading, error, cotizaciones, meses]);
+  }, [isLoading, error, tasasPorMes, meses]);
 
   const options = {
+    responsive: true,
     scales: {
       y: {
         beginAtZero: true,
         ticks: {
           callback: function (value) {
-            return `${value.toFixed(2)}%`;
+            return `${value}%`;
           },
         },
       },
     },
     plugins: {
       legend: {
-        display: false,
+        position: "top",
       },
       title: {
         display: true,
-        text: ` TNA PF (Promedio BCRA) - Últimos ${meses} Meses`,
+        text: `TNA PF (Promedio BCRA) - Últimos ${meses} Meses`,
       },
       datalabels: {
         anchor: "end",

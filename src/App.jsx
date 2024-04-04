@@ -10,7 +10,6 @@ import { GraficoCotizacionDolarContadoConLiquiMensual } from "./components/Grafi
 import { TasasPlazoFijo } from "./components/TasasPlazoFijo";
 import { GraficoInflacionMensual } from "./components/GraficoInflacionMensual";
 import { GraficoInflacionAcumulada } from "./components/GraficoInflacionAcumulada";
-import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
 import { GraficoInflacionInteranual } from "./components/GraficoInflacionInteranual";
 // ------------------------------------------ //
 
@@ -58,15 +57,7 @@ function App() {
       <GraficoInflacionMensual />
       <GraficoInflacionAcumulada />
       <GraficoInflacionInteranual />
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-8">
-            <div className="p-3 border bg-light rounded ">
-              <CotizacionBitcoin />
-            </div>
-          </div>
-        </div>
-      </div>
+
       <br />
       <div className="container-fluid">
         <div className="p-3 border bg-light rounded ">
