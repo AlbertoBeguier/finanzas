@@ -21,7 +21,7 @@
   display: flex; /* Utiliza flexbox para alinear los elementos */
   justify-content: center; /* Centra los elementos horizontalmente */
   align-items: center; /* Centra los elementos verticalmente */
-  height: 50vh; /* Hace que el contenedor ocupe todo el alto de la ventana */
+  height: 80vh; /* Hace que el contenedor ocupe todo el alto de la ventana */
   flex-direction: row; /* Alinea los elementos en fila */
   text-align: center; /* Asegura que el texto esté centrado */
 }
@@ -32,7 +32,7 @@
 }
 
 table {
-  width: auto;
+  width: 90%;
   margin: 20px auto;
   border-collapse: separate;
   border-spacing: 20px 0;
@@ -48,13 +48,13 @@ th {
   background-color: #3e499c;
   color: white;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 td {
   text-align: right;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 td:first-child {
@@ -93,7 +93,7 @@ h3 {
 .group-header {
   background-color: #3e499c;
   color: white;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 /* Ajuste para alinear los encabezados de grupo ('Variación Diaria' y 'Variación Mensual') con sus subcolumnas */

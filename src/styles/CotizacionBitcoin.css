@@ -1,0 +1,22 @@
+.bitcoin-titulo {
+  color: #3e499c;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.bitcoin-parrafo {
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #3e499c;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}

@@ -32,20 +32,26 @@ function App() {
         {" "}
         {/* Usa "container-fluid" si prefieres un ancho completo */}
         <div className="row justify-content-center">
-          <div className="col-md-8">
+          <div className="col-md-11">
             <div className="p-3 border bg-light rounded ">
               <InfoDolar />
             </div>
           </div>
         </div>
       </div>
-      <GraficoCotizacionDolarOficialMensual />
-      <GraficoCotizacionDolarBlueMensual />
-      <GraficoCotizacionDolarBolsaMensual />
-      <GraficoCotizacionDolarContadoConLiquiMensual />
-      <div className="container">
+      <div className="container-fluid">
         <div className="row justify-content-center">
-          <div className="col-md-9">
+          <div className="col-md-11">
+            <GraficoCotizacionDolarOficialMensual />
+            <GraficoCotizacionDolarBlueMensual />
+            <GraficoCotizacionDolarBolsaMensual />
+            <GraficoCotizacionDolarContadoConLiquiMensual />
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-md-11">
             <div className="p-3 border bg-light rounded ">
               <TasasPlazoFijo />
             </div>

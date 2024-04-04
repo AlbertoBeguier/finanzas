@@ -28,7 +28,7 @@ export const GraficoCotizacionDolarOficialMensual = () => {
   const chartContainerStyle = {
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)",
+    maxWidth: "calc(100% - 10px)",
     width: `${Math.max(meses * 70, 300)}px`,
     boxSizing: "border-box",
   };
