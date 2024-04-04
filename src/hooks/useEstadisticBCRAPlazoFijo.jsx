@@ -9,13 +9,16 @@ export function useEstadisticBCRAPlazoFijo() {
     setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/tasa_depositos_30_dias", {
-          method: "GET",
-          headers: {
-            Authorization:
-              "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3Njg4MzUsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJhYWJlZ3VpZXJAaG90bWFpbC5jb20ifQ.YF00kDQ75v7KO0cmEgltmYyWSDr-j1laK_pXyJC11yqV7wisfgw6hJGcDHGPZ9QKD8Q0TmjfVAuxPg8TkdJlwg",
-          },
-        });
+        const response = await fetch(
+          "https://api.estadisticasbcra.com/api/tasa_depositos_30_dias",
+          {
+            method: "GET",
+            headers: {
+              Authorization:
+                "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDM3Njg4MzUsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJhYWJlZ3VpZXJAaG90bWFpbC5jb20ifQ.YF00kDQ75v7KO0cmEgltmYyWSDr-j1laK_pXyJC11yqV7wisfgw6hJGcDHGPZ9QKD8Q0TmjfVAuxPg8TkdJlwg",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("La solicitud a la API del BCRA falló");
