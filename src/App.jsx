@@ -14,6 +14,9 @@ import { CotizacionBitcoin } from "./components/CotizacionBitcoin";
 import { GraficoInflacionInteranual } from "./components/GraficoInflacionInteranual";
 // ------------------------------------------ //
 
+// Series estadísticas
+import { GraficoCotizacionPlazoFijoBCRA } from "./components/GraficoCotizacionPlazoFijoBCRA ";
+
 // interes simple y compuesto
 
 import { TasaDeInteresNominal } from "./components/TasaDeInteresNominal";
@@ -50,7 +53,8 @@ function App() {
           </div>
         </div>
       </div>
-      <br />
+      <GraficoCotizacionPlazoFijoBCRA />
+
       <GraficoInflacionMensual />
       <GraficoInflacionAcumulada />
       <GraficoInflacionInteranual />
@@ -89,6 +93,7 @@ function App() {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

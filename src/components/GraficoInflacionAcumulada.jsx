@@ -50,10 +50,11 @@ export const GraficoInflacionAcumulada = () => {
         setDataInflacionAcumulada(valoresAcumulados);
 
         const etiquetas = datosFiltrados.map(item => {
-          const date = new Date(item.fecha);
-          return `${date.toLocaleString("es-AR", {
+          const date = new Date(item.fecha); // Asume que item.fecha está en un formato compatible
+          return date.toLocaleDateString("es-AR", {
             month: "short",
-          })}-${date.getFullYear()}`;
+            year: "numeric",
+          });
         });
         setLabels(etiquetas);
       })
