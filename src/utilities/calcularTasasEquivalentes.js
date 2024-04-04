@@ -8,7 +8,7 @@ export function calcularTasasEquivalentes(tasas) {
     const tnaDecimal = tasa.tnaClientes;
     // Asegurarse de que el cálculo y el formateo sean correctos
     const tasaMensual = tnaDecimal / 12;
-    const tasaDiaria = tnaDecimal / 365;
+    const tasaDiaria = tnaDecimal / 365; //Año comercial 360 días
 
     return {
       ...tasa,
