@@ -30,9 +30,9 @@ export const GraficoInflacionAcumulada = () => {
   const chartContainerStyle = {
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)", // Asegura que el gráfico no exceda el ancho disponible.
+    maxWidth: "calc(100% - 10px)", // Asegura que el gráfico no exceda el ancho disponible.
     minWidth: "%", // Asegura que el gráfico ocupe al menos un 33% de la pantalla.
-    width: `max(${Math.max(meses * 70, 300)}px, 33%)`, // Utiliza el mayor valor entre el cálculo basado en meses y el 33% de la pantalla.
+    width: `max(${Math.max(meses * 90, 300)}px, 33%)`, // Utiliza el mayor valor entre el cálculo basado en meses y el 33% de la pantalla.
     boxSizing: "border-box",
   };
 
@@ -93,6 +93,11 @@ export const GraficoInflacionAcumulada = () => {
       title: {
         display: true,
         text: `Inflación Acumulada - Últimos ${meses} Meses`,
+        font: {
+          size: "22", // Ajusta esto a tu preferencia, valor en píxeles
+          family: "Arial", // Ejemplo de cómo establecer la familia de la fuente
+        },
+        color: "#3e499c", // Establece el color de tu preferencia
       },
       // Configura las etiquetas de datos aquí
       datalabels: {
@@ -109,16 +114,19 @@ export const GraficoInflacionAcumulada = () => {
   return (
     <>
       <div className="grafico-container" style={chartContainerStyle}>
-        <h3>{`Inflación Acumulada - Últimos ${meses} Meses`}</h3>
-        <label htmlFor="meses">Seleccione la cantidad de meses: </label>
-        <input
-          className="input-meses"
-          type="number"
-          id="meses"
-          value={meses}
-          onChange={e => setMeses(Number(e.target.value))}
-          min="1"
-        />
+        <div className="leyenda-personalizada">
+          <label htmlFor="meses" style={{ marginRight: "10px" }}>
+            Seleccione la cantidad de meses:
+          </label>
+          <input
+            className="input-meses"
+            type="number"
+            id="meses"
+            value={meses}
+            onChange={e => setMeses(Number(e.target.value))}
+            min="1"
+          />{" "}
+        </div>
         {dataInflacionAcumulada.length > 0 ? (
           <Bar data={chartData} options={options} />
         ) : (

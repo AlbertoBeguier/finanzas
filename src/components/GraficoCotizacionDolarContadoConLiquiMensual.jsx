@@ -28,8 +28,8 @@ export const GraficoCotizacionDolarContadoConLiquiMensual = () => {
   const chartContainerStyle = {
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)",
-    width: `${Math.max(meses * 70, 300)}px`,
+    maxWidth: "calc(100% - 10px)",
+    width: `${Math.max(meses * 90, 300)}px`,
     boxSizing: "border-box",
   };
   useEffect(() => {
@@ -104,6 +104,11 @@ export const GraficoCotizacionDolarContadoConLiquiMensual = () => {
       title: {
         display: true,
         text: `Cotización del Dólar CCL- Últimos ${meses} Meses`,
+        font: {
+          size: "22", // Ajusta esto a tu preferencia, valor en píxeles
+          family: "Arial", // Ejemplo de cómo establecer la familia de la fuente
+        },
+        color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
         anchor: "center",
@@ -120,16 +125,23 @@ export const GraficoCotizacionDolarContadoConLiquiMensual = () => {
   return (
     <>
       <div className="grafico-container" style={chartContainerStyle}>
-        <h3>{`Cotización dólar CCL - Últimos ${meses} Meses`}</h3>
-        <label htmlFor="meses2">Seleccione la cantidad de meses: </label>
-        <input
-          className="input-meses"
-          type="number"
-          id="meses2"
-          value={meses}
-          onChange={e => setMeses(e.target.value)}
-          min="10" // meses mínimos en el gráfico
-        />
+        <div className="leyenda-personalizada">
+          <label htmlFor="meses2" style={{ marginRight: "10px" }}>
+            {" "}
+            Seleccione la cantidad de meses:{" "}
+          </label>
+          <input
+            className="input-meses"
+            type="number"
+            id="meses2"
+            value={meses}
+            onChange={e => {
+              const nuevoValor = e.target.value;
+              setMeses(nuevoValor >= 10 ? nuevoValor : 10); // Asegura que el valor no sea menor a 10
+            }}
+            min="10" // meses mínimos en el gráfico
+          />{" "}
+        </div>
         {datosCotizacion.length > 0 ? (
           <>
             <Bar data={chartData} options={options} />

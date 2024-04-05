@@ -86,6 +86,11 @@ export const GraficoInflacionInteranual = () => {
       title: {
         display: true,
         text: `Inflación Interanual - Últimos ${meses} Meses`,
+        font: {
+          size: "22", // Ajusta esto a tu preferencia, valor en píxeles
+          family: "Arial", // Ejemplo de cómo establecer la familia de la fuente
+        },
+        color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
         anchor: "center",
@@ -102,27 +107,26 @@ export const GraficoInflacionInteranual = () => {
   const chartContainerStyle = () => ({
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)",
-    width: `${Math.max(meses * 70, 300)}px`, // Ajusta dinámicamente el ancho basado en los meses
+    maxWidth: "calc(100% - 10px)",
+    width: `${Math.max(meses * 90, 300)}px`, // Ajusta dinámicamente el ancho basado en los meses
     boxSizing: "border-box",
   });
 
   return (
     <>
       <div className="grafico-container" style={chartContainerStyle()}>
-        <h3>{`Inflación Interanual - Últimos ${meses} Meses`}</h3>
-        <p className="parrafo-greficos">
-          Compara el nivel de precios de un mes específico con el nivel de
-          precios del mismo mes en el año anterior.
-        </p>
-        <label htmlFor="meses4">Seleccione la cantidad de meses: </label>
-        <input
-          className="input-meses"
-          type="number"
-          id="meses4"
-          value={meses}
-          onChange={e => setMeses(Number(e.target.value))}
-        />
+        <div className="leyenda-personalizada">
+          <label htmlFor="meses4" style={{ marginRight: "10px" }}>
+            Seleccione la cantidad de meses:
+          </label>
+          <input
+            className="input-meses"
+            type="number"
+            id="meses4"
+            value={meses}
+            onChange={e => setMeses(Number(e.target.value))}
+          />{" "}
+        </div>
         <>
           <Bar data={chartData} options={options} />
           <span className="leyenda-personalizada">

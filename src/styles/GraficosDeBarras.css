@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px;
   margin: 20px auto;
-  max-width: calc(100% - 40px);
+  max-width: calc(100% - 10px);
   box-sizing: border-box;
 }
 

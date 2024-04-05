@@ -30,9 +30,9 @@ export const GraficoCotizacionPlazoFijoBCRA = () => {
   const chartContainerStyle = {
     padding: "20px",
     margin: "20px auto",
-    maxWidth: "calc(100% - 40px)",
+    maxWidth: "calc(100% - 10px)",
     minWidth: "33%",
-    width: `max(${Math.max(meses * 70, 300)}px, 33%)`,
+    width: `max(${Math.max(meses * 90, 300)}px, 33%)`,
     boxSizing: "border-box",
   };
 
@@ -105,6 +105,11 @@ export const GraficoCotizacionPlazoFijoBCRA = () => {
       title: {
         display: true,
         text: `TNA PF (Promedio BCRA) - Últimos ${meses} Meses`,
+        font: {
+          size: "22", // Ajusta esto a tu preferencia, valor en píxeles
+          family: "Arial", // Ejemplo de cómo establecer la familia de la fuente
+        },
+        color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
         anchor: "end",
@@ -117,16 +122,19 @@ export const GraficoCotizacionPlazoFijoBCRA = () => {
 
   return (
     <div className="grafico-container" style={chartContainerStyle}>
-      <h3>{`TNA PF (Promedio BCRA) - Últimos ${meses} Meses`}</h3>
-      <label htmlFor="mesesSelect1">Seleccione la cantidad de meses:</label>
-      <input
-        className="input-meses"
-        type="number"
-        id="mesesSelect1"
-        value={meses}
-        onChange={e => setMeses(Number(e.target.value))}
-        min="10"
-      />
+      <div className="leyenda-personalizada">
+        <label htmlFor="mesesSelect1" style={{ marginRight: "10px" }}>
+          Seleccione la cantidad de meses:
+        </label>
+        <input
+          className="input-meses"
+          type="number"
+          id="mesesSelect1"
+          value={meses}
+          onChange={e => setMeses(Number(e.target.value))}
+          min="10"
+        />
+      </div>
       {isLoading ? (
         <div className="loading-container">
           <div className="spinner"></div>

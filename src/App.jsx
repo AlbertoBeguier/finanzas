@@ -27,7 +27,6 @@ function App() {
     <>
       <NavBar />
       <br />
-      <br />
       <div className="container-fluid">
         {" "}
         {/* Usa "container-fluid" si prefieres un ancho completo */}

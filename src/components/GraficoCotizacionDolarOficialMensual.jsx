@@ -29,7 +29,7 @@ export const GraficoCotizacionDolarOficialMensual = () => {
     padding: "20px",
     margin: "20px auto",
     maxWidth: "calc(100% - 10px)",
-    width: `${Math.max(meses * 70, 300)}px`,
+    width: `${Math.max(meses * 90, 300)}px`,
     boxSizing: "border-box",
   };
   useEffect(() => {
@@ -104,6 +104,11 @@ export const GraficoCotizacionDolarOficialMensual = () => {
       title: {
         display: true,
         text: `Cotización del Dólar Oficial - Últimos ${meses} Meses`,
+        font: {
+          size: "22", // Ajusta esto a tu preferencia, valor en píxeles
+          family: "Arial", // Ejemplo de cómo establecer la familia de la fuente
+        },
+        color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
         anchor: "center",
@@ -120,16 +125,19 @@ export const GraficoCotizacionDolarOficialMensual = () => {
   return (
     <>
       <div className="grafico-container" style={chartContainerStyle}>
-        <h3>{`Cotización dólar oficial - Últimos ${meses} Meses`}</h3>
-        <label htmlFor="meses3">Seleccione la cantidad de meses: </label>
-        <input
-          className="input-meses"
-          type="number"
-          id="meses3"
-          value={meses}
-          onChange={e => setMeses(e.target.value)}
-          min="10" // meses mínimos en el gráfico
-        />
+        <div className="leyenda-personalizada">
+          <label htmlFor="meses3" style={{ marginRight: "10px" }}>
+            Seleccione la cantidad de meses:
+          </label>
+          <input
+            className="input-meses"
+            type="number"
+            id="meses3"
+            value={meses}
+            onChange={e => setMeses(e.target.value)}
+            min="10" // Meses mínimos en el gráfico
+          />
+        </div>
         {datosCotizacion.length > 0 ? (
           <>
             <Bar data={chartData} options={options} />
