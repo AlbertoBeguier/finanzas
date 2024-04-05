@@ -40,7 +40,7 @@ export const TasasPlazoFijo = () => {
             <table>
               <thead>
                 <tr>
-                  <th style={{ textAlign: "left" }}>Banco</th>
+                  <th style={{ textAlign: "left" }}>ENTIDAD FINANCIERA</th>
                   <th style={{ textAlign: "center" }}>TNA </th>
                   <th style={{ textAlign: "center" }}>TEfM</th>
                   <th style={{ textAlign: "center" }}>TEfD</th>
@@ -58,13 +58,17 @@ export const TasasPlazoFijo = () => {
                         : ""
                     }
                   >
-                    <td>{tasa.entidad}</td>
+                    <td className="td-p-f">{tasa.entidad}</td>
 
-                    <td style={{ textAlign: "center" }}>
+                    <td className="td-p-f-1" style={{ textAlign: "center" }}>
                       {tasa.tnaClientes.toFixed(2)}
                     </td>
-                    <td style={{ textAlign: "center" }}>{tasa.tasaMensual}</td>
-                    <td style={{ textAlign: "center" }}>{tasa.tasaDiaria}</td>
+                    <td className="td-p-f-1" style={{ textAlign: "center" }}>
+                      {tasa.tasaMensual}
+                    </td>
+                    <td className="td-p-f-1" style={{ textAlign: "center" }}>
+                      {tasa.tasaDiaria}
+                    </td>
                   </tr>
                 ))}
               </tbody>
