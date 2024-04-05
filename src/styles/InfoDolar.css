@@ -30,7 +30,9 @@
   color: #3e499c;
   font-weight: 500;
 }
-
+.tipo-dolar {
+  font-size: 1.05rem;
+}
 table {
   width: 90%;
   margin: 20px auto;

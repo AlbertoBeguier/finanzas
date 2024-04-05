@@ -134,7 +134,7 @@ export const InfoDolar = () => {
             <tbody>
               {datosConVariaciones.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.nombre}</td>
+                  <td className="tipo-dolar">{item.nombre.toUpperCase()}</td>
                   <td>
                     {new Intl.NumberFormat("es-AR", {
                       style: "currency",
