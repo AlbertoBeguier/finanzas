@@ -101,6 +101,7 @@ export const GraficoInflacionAcumulada = () => {
       },
       // Configura las etiquetas de datos aquí
       datalabels: {
+        display: meses <= 24,
         anchor: "center",
         align: "center",
         color: "black",

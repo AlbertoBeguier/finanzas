@@ -112,6 +112,7 @@ export const GraficoCotizacionPlazoFijoBCRA = () => {
         color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
+        display: meses <= 25,
         anchor: "end",
         align: "top",
         color: "#444",

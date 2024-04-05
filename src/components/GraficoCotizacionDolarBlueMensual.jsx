@@ -110,6 +110,7 @@ export const GraficoCotizacionDolarBlueMensual = () => {
         color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
+        display: meses <= 36,
         anchor: "center",
         align: "center",
         color: "black",
@@ -133,10 +134,7 @@ export const GraficoCotizacionDolarBlueMensual = () => {
             type="number"
             id="meses6"
             value={meses}
-            onChange={e => {
-              const nuevoValor = e.target.value;
-              setMeses(nuevoValor >= 10 ? nuevoValor : 10); // Asegura que el valor no sea menor a 10
-            }}
+            onChange={e => setMeses(e.target.value)}
             min="10" // meses mínimos en el gráfico
           />
         </div>
