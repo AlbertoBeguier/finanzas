@@ -91,6 +91,8 @@ export const GraficoCotizacionDolarContadoConLiquiMensual = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true, // Asegúrate de que esto esté establecido en true
+    aspectRatio: 3,
     scales: {
       y: {
         beginAtZero: true,

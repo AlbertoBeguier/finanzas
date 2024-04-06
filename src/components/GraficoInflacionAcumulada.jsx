@@ -76,6 +76,8 @@ export const GraficoInflacionAcumulada = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true, // Asegúrate de que esto esté establecido en true
+    aspectRatio: 2,
     scales: {
       y: {
         beginAtZero: true,

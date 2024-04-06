@@ -5,7 +5,9 @@
   border-radius: 5px;
   padding: 1px;
 }
-
+.interes-compuesto-contenido {
+  text-align: center;
+}
 .label-interes {
   margin: 5px;
 }
@@ -73,6 +75,7 @@
   text-align: center;
   white-space: nowrap;
   font-size: 16px;
+  text-align: center;
 }
 .tabla-interes-filas {
   font-size: 16px;
@@ -83,15 +86,27 @@
   align-items: center;
 }
 
-.contenedor-interes {
-  padding-left: 80px;
+.input-egreso,
+.input-ingreso {
+  width: 100px; /* O el ancho fijo que mejor se adapte a tu diseño */
+  border-radius: 5px;
+  text-align: center;
+  margin: auto; /* Centrar si es necesario */
+  display: block; /* Asegura que el input ocupe el ancho completo de la celda */
 }
 
-.input-egreso {
-  margin: 5px;
-  width: 200%; /* Ajusta este valor según necesites */
-  border-radius: 5px;
+.tabla-interes-titulo-columna-1 {
+  text-align: center;
+  white-space: nowrap;
+  font-size: 16px;
+  text-align: center;
 }
-.th-egreso {
-  width: 200%; /* Este valor debe coincidir con el del input para mantener la consistencia */
+
+.tabla-interes-titulo-columna-1.egreso-ingreso-columna {
+  width: 100px; /* Debe ser el mismo ancho que los inputs para coincidir */
+}
+.tabla-interes-filas-1 {
+  font-size: 16px;
+  text-align: center;
+  padding: 2px;
 }

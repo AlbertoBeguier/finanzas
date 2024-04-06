@@ -46,7 +46,7 @@ export const TasasPlazoFijo = () => {
                   <th style={{ textAlign: "center" }}>TEfD</th>
                 </tr>
               </thead>
-              <tbody className="tabla-plazo-fijo">
+              <tbody className="tabla-plazo-fijo ">
                 {dataTasas.tasas.map((tasa, index) => (
                   <tr
                     key={index}

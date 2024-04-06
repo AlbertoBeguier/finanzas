@@ -89,17 +89,23 @@ export const TablaInteresCompuestoIngEgr = ({
 
   return (
     <div>
-      <h3 className="tabla-interes-titulo">Tabla de Interés Compuesto</h3>
+      <h3 className="tabla-interes-titulo">
+        Tabla de Interés Compuesto - Retiros y colocaciones
+      </h3>
       <table>
         <thead>
           <tr>
-            <th className="tabla-interes-titulo-columna">Per</th>
-            <th className="tabla-interes-titulo-columna">Capital Inicial</th>
-            <th className="tabla-interes-titulo-columna">Interés</th>
-            <th className="tabla-interes-titulo-columna">Capital Final</th>
-            <th className="tabla-interes-titulo-columna">Tasa Efectiva</th>
-            <th className="tabla-interes-titulo-columna th-egreso">Egreso</th>
-            <th className="tabla-interes-titulo-columna th-ingreso">Ingreso</th>
+            <th className="tabla-interes-titulo-columna-1">Per</th>
+            <th className="tabla-interes-titulo-columna-1">Capital Inicial</th>
+            <th className="tabla-interes-titulo-columna-1">Interés</th>
+            <th className="tabla-interes-titulo-columna-1">Capital Final</th>
+            <th className="tabla-interes-titulo-columna-1">Tasa Efectiva</th>
+            <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna">
+              Egresos
+            </th>
+            <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna">
+              Ingresos
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -107,23 +113,27 @@ export const TablaInteresCompuestoIngEgr = ({
             const fila = calcularFila(periodo + 1, capitalAnterior);
             const egreso = egresos[periodo] || 0;
             const ingreso = ingresos[periodo] || 0;
-            capitalAnterior = fila.capitalFinal - egreso + ingreso; // Se ajusta el capital anterior
+            capitalAnterior = fila.capitalFinal - egreso + ingreso;
+            const esMultiploDe12 = (periodo + 1) % 12 === 0;
+            const trClasses = `tr-hover ${
+              esMultiploDe12 ? "tr-multiplo-de-12" : ""
+            }`; // Se ajusta el capital anterior
             return (
-              <tr key={periodo}>
-                <td className="tabla-interes-filas">{periodo + 1}</td>
-                <td className="tabla-interes-filas">
+              <tr key={periodo} className={trClasses}>
+                <td className="tabla-interes-filas-1">{periodo + 1}</td>
+                <td className="tabla-interes-filas-1">
                   {formatearPesosArgentinos(fila.capitalInicial)}
                 </td>
-                <td className="tabla-interes-filas">
+                <td className="tabla-interes-filas-1">
                   {formatearPesosArgentinos(fila.interesesPeriodo)}
                 </td>
-                <td className="tabla-interes-filas">
+                <td className="tabla-interes-filas-1">
                   {formatearPesosArgentinos(fila.capitalFinal)}
                 </td>
-                <td className="tabla-interes-filas">
+                <td className="tabla-interes-filas-1">
                   {(fila.rendimientoEfectivo * 100).toFixed(2)}%
                 </td>
-                <td className="tabla-interes-filas">
+                <td className="tabla-interes-filas-1">
                   <input
                     className="input-egreso"
                     type="text"
@@ -131,7 +141,7 @@ export const TablaInteresCompuestoIngEgr = ({
                     onChange={e => handleEgresoChange(periodo, e.target.value)}
                   />
                 </td>
-                <td className="tabla-interes-filas">
+                <td className="tabla-interes-filas-1">
                   <input
                     className="input-ingreso"
                     type="text"

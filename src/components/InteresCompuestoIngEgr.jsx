@@ -3,7 +3,7 @@ import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
 import { TablaInteresCompuestoIngEgr } from "./TablaInteresCompuestoIngEgr";
 import "../styles/InteresSimpleyCompuesto.css";
-export const InteresCompuesto = () => {
+export const InteresCompuestoIngEgr = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
     useFormatPesosArgentinos();
   const [capitalFinal, handleChangeFinal, capitalFinalFormateado] =
@@ -87,9 +87,9 @@ export const InteresCompuesto = () => {
 
   return (
     <>
-      <div className="contenedor-interes">
-        <h3 className="titulo-interes">Interés Compuesto</h3>
-        <div>
+      <div>
+        <h3 className="tabla-interes-titulo">Interés Compuesto</h3>
+        <div className="interes-compuesto-contenido">
           <label className="label-interes">
             Capital Inicial:
             <input
@@ -103,7 +103,7 @@ export const InteresCompuesto = () => {
           <span className="span-interes">{capitalInicialFormateado}</span>
         </div>
 
-        <div>
+        <div className="interes-compuesto-contenido">
           <label className="label-interes">
             Período de Capitalización:
             <select
@@ -119,7 +119,7 @@ export const InteresCompuesto = () => {
           </label>
         </div>
 
-        <div>
+        <div className="interes-compuesto-contenido">
           <label className="label-interes">
             Cantidad de{" "}
             {periodoCapitalizacion === "día"
@@ -146,7 +146,7 @@ export const InteresCompuesto = () => {
           <span className="span-interes">{renderizarTiempo()}</span>
         </div>
 
-        <div>
+        <div className="interes-compuesto-contenido">
           <label className="label-interes">
             Tasa de Interés :
             <input
@@ -161,7 +161,7 @@ export const InteresCompuesto = () => {
           <span className="span-interes">{tasaEnPorcentaje}</span>
         </div>
 
-        <div>
+        <div className="interes-compuesto-contenido">
           <label className="label-interes">
             Capital Final:
             <input
@@ -182,17 +182,14 @@ export const InteresCompuesto = () => {
           </div>
         )}
       </div>
-
-      <div className="container-fluid">
-        <div className="contenedor-tabla">
-          {datosCompletos && (
-            <TablaInteresCompuestoIngEgr
-              capitalInicial={parseFloat(capitalInicial)}
-              tasaInteres={parseFloat(tasa)}
-              cantidadPeriodos={parseInt(cantidadTiempo)}
-            />
-          )}
-        </div>
+      <div>
+        {datosCompletos && (
+          <TablaInteresCompuestoIngEgr
+            capitalInicial={parseFloat(capitalInicial)}
+            tasaInteres={parseFloat(tasa)}
+            cantidadPeriodos={parseInt(cantidadTiempo)}
+          />
+        )}
       </div>
     </>
   );
