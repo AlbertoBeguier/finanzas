@@ -86,3 +86,12 @@
 .contenedor-interes {
   padding-left: 80px;
 }
+
+.input-egreso {
+  margin: 5px;
+  width: 200%; /* Ajusta este valor según necesites */
+  border-radius: 5px;
+}
+.th-egreso {
+  width: 200%; /* Este valor debe coincidir con el del input para mantener la consistencia */
+}

@@ -1,7 +1,7 @@
 import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
-import { TablaInteresCompuesto } from "./TablaInteresCompuesto";
+import { TablaInteresCompuestoIngEgr } from "./TablaInteresCompuestoIngEgr";
 import "../styles/InteresSimpleyCompuesto.css";
 export const InteresCompuesto = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
@@ -182,14 +182,17 @@ export const InteresCompuesto = () => {
           </div>
         )}
       </div>
-      <div className="contenedor-tabla">
-        {datosCompletos && (
-          <TablaInteresCompuesto
-            capitalInicial={parseFloat(capitalInicial)}
-            tasaInteres={parseFloat(tasa)}
-            cantidadPeriodos={parseInt(cantidadTiempo)}
-          />
-        )}
+
+      <div className="container-fluid">
+        <div className="contenedor-tabla">
+          {datosCompletos && (
+            <TablaInteresCompuestoIngEgr
+              capitalInicial={parseFloat(capitalInicial)}
+              tasaInteres={parseFloat(tasa)}
+              cantidadPeriodos={parseInt(cantidadTiempo)}
+            />
+          )}
+        </div>
       </div>
     </>
   );
