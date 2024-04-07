@@ -7,6 +7,7 @@ import PaginaPrincipal from "./components/PaginaPrincipal";
 import { PaginaInflacion } from "./components/PaginaInflacion"; // Este es el nuevo componente para la página principal
 import { PaginaInteresCompuestoIngEgr } from "./components/PaginaInteresCompuestoIngEgr";
 import { PaginaTasasInteres } from "./components/PaginaTasasInteres";
+import { PaginaAnalisis } from "./components/PaginaAnalisis";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/inflacion" element={<PaginaInflacion />} />
         <Route path="/tasas-interes" element={<PaginaTasasInteres />} />
         <Route path="/calculos" element={<PaginaInteresCompuestoIngEgr />} />
+        <Route path="/analisis" element={<PaginaAnalisis />} />
       </Routes>
       <Footer />
     </Router>

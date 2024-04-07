@@ -67,7 +67,7 @@ export const GraficoCotizacionPlazoFijoBCRA = () => {
         labels,
         datasets: [
           {
-            label: "Tasa Promedio Mensual (%)",
+            label: "TNA (Promedio del mes) (%)",
             data: valores,
             backgroundColor: valores.map(value => {
               if (value === maxValue) {

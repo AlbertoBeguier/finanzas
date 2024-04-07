@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-export const useTasaInteres = (unidadTiempo, valorInicial = "") => {
+export const useTasaInteres1 = (unidadTiempo, valorInicial = "") => {
   const [tasa, setTasa] = useState(valorInicial);
   const [mensajeError, setMensajeError] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("tasa", tasa);
+    sessionStorage.setItem("tasa", tasa);
   }, [tasa]);
   const handleChangeTasa = e => {
     const valorEntrada = e.target.value;

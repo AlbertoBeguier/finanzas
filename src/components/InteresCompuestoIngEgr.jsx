@@ -1,30 +1,52 @@
+import { useEffect } from "react";
 import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
-import { useTasaInteres } from "../hooks/useTasaInteres";
+import { useTasaInteres1 } from "../hooks/useTasaInteres1";
 import { TablaInteresCompuestoIngEgr } from "./TablaInteresCompuestoIngEgr";
 import "../styles/InteresSimpleyCompuesto.css";
+
 export const InteresCompuestoIngEgr = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
-    useFormatPesosArgentinos();
+    useFormatPesosArgentinos(sessionStorage.getItem("capitalInicial") || "");
   const [capitalFinal, handleChangeFinal, capitalFinalFormateado] =
-    useFormatPesosArgentinos();
+    useFormatPesosArgentinos(sessionStorage.getItem("capitalFinal") || "");
   const [
     cantidadTiempo,
     periodoCapitalizacion,
     handleCantidadTiempoChange,
     handlePeriodoCapitalizacionChange,
     renderizarTiempo,
-  ] = useTiempoDeLaOperacion("1", "mes");
-  const [tasa, handleChangeTasa, mensajeError, tasaEnPorcentaje] =
-    useTasaInteres(periodoCapitalizacion);
+  ] = useTiempoDeLaOperacion(
+    sessionStorage.getItem("cantidadTiempo") || "1",
+    sessionStorage.getItem("periodoCapitalizacion") || "mes"
+  );
+  const [tasa1, handleChangeTasa, mensajeError, tasaEnPorcentaje] =
+    useTasaInteres1(
+      periodoCapitalizacion,
+      sessionStorage.getItem("tasa1") || ""
+    );
+
+  useEffect(() => {
+    sessionStorage.setItem("capitalInicial", capitalInicial);
+    sessionStorage.setItem("capitalFinal", capitalFinal);
+    sessionStorage.setItem("cantidadTiempo", cantidadTiempo);
+    sessionStorage.setItem("periodoCapitalizacion", periodoCapitalizacion);
+    sessionStorage.setItem("tasa1", tasa1);
+  }, [
+    capitalInicial,
+    capitalFinal,
+    cantidadTiempo,
+    periodoCapitalizacion,
+    tasa1,
+  ]);
 
   // Verificar si todos los datos requeridos están presentes
-  const datosCompletos = capitalInicial && tasa && cantidadTiempo;
+  const datosCompletos = capitalInicial && tasa1 && cantidadTiempo;
 
   const calcularVariableFaltante = () => {
     const Co = parseFloat(capitalInicial) || null;
     const Cn = parseFloat(capitalFinal) || null;
-    const i = parseFloat(tasa) || null;
+    const i = parseFloat(tasa1) || null;
     const n = parseFloat(cantidadTiempo) || null;
 
     let resultado = "";
@@ -153,7 +175,7 @@ export const InteresCompuestoIngEgr = () => {
               className="input-interes-2"
               name="name-input-interes-2"
               type="text"
-              value={tasa}
+              value={tasa1}
               onChange={handleChangeTasa}
             />
           </label>
@@ -186,7 +208,7 @@ export const InteresCompuestoIngEgr = () => {
         {datosCompletos && (
           <TablaInteresCompuestoIngEgr
             capitalInicial={parseFloat(capitalInicial)}
-            tasaInteres={parseFloat(tasa)}
+            tasaInteres={parseFloat(tasa1)}
             cantidadPeriodos={parseInt(cantidadTiempo)}
           />
         )}

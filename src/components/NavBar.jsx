@@ -39,6 +39,11 @@ export const NavBar = () => {
     navigate("/calculos");
     window.scrollTo(0, 0);
   };
+  const handleAnalisisClick = () => {
+    navigate("/analisis");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg justify-content-center">
@@ -82,12 +87,17 @@ export const NavBar = () => {
             </li>
             <li className="nav-item">
               <span className="boton-navbar" onClick={handleTasasInteresClick}>
-                T. INTERES
+                TNA (PF)
+              </span>
+            </li>
+            <li className="nav-item">
+              <span className="boton-navbar" onClick={handleAnalisisClick}>
+                ANALISIS INTEGRAL
               </span>
             </li>
             <li className="nav-item">
               <span className="boton-navbar" onClick={handleCalculosClick}>
-                CALCULOS
+                CALCULOS AVANZADOS
               </span>
             </li>
           </ul>
