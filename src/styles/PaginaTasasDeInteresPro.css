@@ -1,0 +1,57 @@
+.tasaContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.inputSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputWithPercent {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  font-weight: 700;
+}
+
+.inputWithPercent input {
+  width: 57px; /* O el ancho específico que prefieras */
+  border: 2px solid #203192; /* Solo por estética, opcional */
+  border-radius: 5px;
+}
+
+.resultado {
+  font-weight: 500;
+  margin: 10px;
+}
+
+.tipoAnioSection {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Ajusta el espacio entre los elementos según necesites */
+  border-radius: 5px; /* Opcional: añade bordes redondeados para un look más suave */
+}
+
+.tipoAnioSection label {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espacio entre el radio button y el texto */
+}
+
+.tipoAnioSection input[type="radio"] {
+  transform: scale(1.2); /* Hace los radio buttons un poco más grandes */
+}
+
+/* Estilo opcional para el span que muestra los días */
+.tipoAnioSection span {
+  font-weight: bold;
+  background-color: #f0f0f0; /* Fondo ligeramente gris para destacar los días */
+  padding: 5px 10px;
+  border-radius: 5px; /* Bordes redondeados para el span de días */
+}

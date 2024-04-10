@@ -43,6 +43,10 @@ export const NavBar = () => {
     navigate("/analisis");
     window.scrollTo(0, 0);
   };
+  const handleTasasDeInteresProClick = () => {
+    navigate("/tasas-interes-pro");
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div>
@@ -98,6 +102,14 @@ export const NavBar = () => {
             <li className="nav-item">
               <span className="boton-navbar" onClick={handleCalculosClick}>
                 CALCULOS AVANZADOS
+              </span>
+            </li>
+            <li className="nav-item">
+              <span
+                className="boton-navbar"
+                onClick={handleTasasDeInteresProClick}
+              >
+                CALCULOS FINANIEROS
               </span>
             </li>
           </ul>
