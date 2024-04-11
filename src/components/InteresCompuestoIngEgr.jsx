@@ -3,8 +3,7 @@ import { useFormatPesosArgentinos } from "../hooks/useFormatPesosArgentinos";
 import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres1 } from "../hooks/useTasaInteres1";
 import { TablaInteresCompuestoIngEgr } from "./TablaInteresCompuestoIngEgr";
-import "../styles/InteresSimpleyCompuesto.css";
-
+import "../styles/PaginaTasasDeInteresPro.css";
 export const InteresCompuestoIngEgr = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
     useFormatPesosArgentinos(sessionStorage.getItem("capitalInicial") || "");
@@ -110,27 +109,28 @@ export const InteresCompuestoIngEgr = () => {
   return (
     <>
       <div>
-        <h3 className="tabla-interes-titulo">Interés Compuesto</h3>
-        <div className="interes-compuesto-contenido">
-          <label className="label-interes">
+        <h3 className="tabla-interes-titulo-2">Interés Compuesto</h3>
+
+        <div className="container-fluid row">
+          <label className="label-interes-3 col-3">
             Capital Inicial:
             <input
-              className="input-interes"
-              name="name-input-interes"
+              className="input-interes-3 col-2"
+              name="name-input-interes-3"
               type="text"
               value={capitalInicial}
               onChange={handleChangeInicial}
             />
           </label>
-          <span className="span-interes">{capitalInicialFormateado}</span>
-        </div>
+          <span className="span-interes-3 col-2 ">
+            {capitalInicialFormateado}
+          </span>
 
-        <div className="interes-compuesto-contenido">
-          <label className="label-interes">
+          <label className="label-interes-3 col-3">
             Período de Capitalización:
             <select
-              className="select-interes"
-              name="name-select-interes"
+              className="select-interes-3 col-3"
+              name="name-select-interes-3"
               value={periodoCapitalizacion}
               onChange={handlePeriodoCapitalizacionChange}
             >
@@ -140,67 +140,70 @@ export const InteresCompuestoIngEgr = () => {
             </select>
           </label>
         </div>
+        <div className="container-fluid row">
+          <div className="interes-compuesto-contenido col-4 ">
+            <label className="label-interes-4">
+              Cantidad de{" "}
+              {periodoCapitalizacion === "día"
+                ? cantidadTiempo === "1"
+                  ? "Día"
+                  : "Días"
+                : periodoCapitalizacion === "mes"
+                ? cantidadTiempo === "1"
+                  ? "Mes"
+                  : "Meses"
+                : cantidadTiempo === "1"
+                ? "Año"
+                : "Años"}
+              :
+              <input
+                className="input-interes-4"
+                name="name-input-interes-4 "
+                type="number"
+                min="1"
+                value={cantidadTiempo}
+                onChange={handleCantidadTiempoChange}
+              />
+            </label>
+            <span className="span-interes-3">{renderizarTiempo()}</span>
+          </div>
 
-        <div className="interes-compuesto-contenido">
-          <label className="label-interes">
-            Cantidad de{" "}
-            {periodoCapitalizacion === "día"
-              ? cantidadTiempo === "1"
-                ? "Día"
-                : "Días"
-              : periodoCapitalizacion === "mes"
-              ? cantidadTiempo === "1"
-                ? "Mes"
-                : "Meses"
-              : cantidadTiempo === "1"
-              ? "Año"
-              : "Años"}
-            :
-            <input
-              className="input-interes-1"
-              name="name-input-interes-1 "
-              type="number"
-              min="1"
-              value={cantidadTiempo}
-              onChange={handleCantidadTiempoChange}
-            />
-          </label>
-          <span className="span-interes">{renderizarTiempo()}</span>
+          <div className="interes-compuesto-contenido col-4">
+            <label className="label-interes-3">
+              Tasa de Interés :
+              <input
+                className="input-interes-3"
+                name="name-input-interes-3"
+                type="text"
+                value={tasa1}
+                onChange={handleChangeTasa}
+              />
+            </label>
+            {mensajeError && (
+              <span style={{ color: "red" }}>{mensajeError}</span>
+            )}
+            <span className="span-interes-3">{tasaEnPorcentaje}</span>
+          </div>
+
+          <div className="interes-compuesto-contenido col-3">
+            <label className="label-interes-3">
+              Capital Final:
+              <input
+                className="input-interes-3"
+                name="name-input-interes-3"
+                type="text"
+                value={capitalFinal}
+                onChange={handleChangeFinal}
+              />
+            </label>
+            <span className="span-interes-3">{capitalFinalFormateado}</span>
+          </div>
         </div>
-
-        <div className="interes-compuesto-contenido">
-          <label className="label-interes">
-            Tasa de Interés :
-            <input
-              className="input-interes-2"
-              name="name-input-interes-2"
-              type="text"
-              value={tasa1}
-              onChange={handleChangeTasa}
-            />
-          </label>
-          {mensajeError && <span style={{ color: "red" }}>{mensajeError}</span>}
-          <span className="span-interes">{tasaEnPorcentaje}</span>
-        </div>
-
-        <div className="interes-compuesto-contenido">
-          <label className="label-interes">
-            Capital Final:
-            <input
-              className="input-interes"
-              name="name-input-interes"
-              type="text"
-              value={capitalFinal}
-              onChange={handleChangeFinal}
-            />
-          </label>
-          <span className="span-interes">{capitalFinalFormateado}</span>
-        </div>
-
         {resultadoCalculo && (
-          <div>
-            <strong>Resultado:</strong>
-            <div className="span-interes-1">{resultadoCalculo}</div>
+          <div className="full-screen-container">
+            <div className="span-interes-1 col-6 resultado-centrado">
+              {resultadoCalculo}
+            </div>
           </div>
         )}
       </div>

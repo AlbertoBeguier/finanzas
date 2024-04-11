@@ -4,6 +4,12 @@
   gap: 10px; /* Espacio entre los elementos */
 }
 
+.container-fluid.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .inputSection {
   display: flex;
   align-items: center;
@@ -15,14 +21,22 @@
   align-items: center;
 }
 
+label {
+  font-weight: 500;
+  margin-left: 5px; /* Ajustado para reducir el espacio */
+  padding: 5px; /* Reducido para disminuir el espacio extra */
+}
+
 span {
   font-weight: 700;
+  margin-left: 5px;
 }
 
 .inputWithPercent input {
-  width: 57px; /* O el ancho específico que prefieras */
-  border: 2px solid #203192; /* Solo por estética, opcional */
+  width: 70px; /* O el ancho específico que prefieras */
+  border: 2px solid #203192;
   border-radius: 5px;
+  background-color: #f0f0f0;
 }
 
 .resultado {
@@ -34,8 +48,17 @@ span {
   margin-left: 20px;
   display: flex;
   align-items: center;
-  gap: 10px; /* Ajusta el espacio entre los elementos según necesites */
-  border-radius: 5px; /* Opcional: añade bordes redondeados para un look más suave */
+  gap: 5px; /* Ajusta para controlar el espacio entre elementos */
+}
+
+.tipoAnioSection label {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Espacio reducido entre el radio button y el texto */
+}
+
+.tipoAnioSection input[type="radio"] {
+  transform: scale(1.2); /* Hace los radio buttons un poco más grandes */
 }
 
 .tipoAnioSection label {
@@ -54,4 +77,115 @@ span {
   background-color: #f0f0f0; /* Fondo ligeramente gris para destacar los días */
   padding: 5px 10px;
   border-radius: 5px; /* Bordes redondeados para el span de días */
+}
+
+.advertencia {
+  color: rgb(255, 217, 0);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0); /* Agrega sombra negra a las letras */
+}
+
+.subPeriodoInput {
+  width: 70px;
+  border: 2px solid #203192; /* Solo por estética, opcional */
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+}
+
+.option-tasa-interes {
+  width: 70px;
+  border: 2px solid #203192; /* Solo por estética, opcional */
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+}
+
+.parrafo-resultados {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 10px;
+  color: #f0f0f0;
+  background-color: #203192;
+  border-radius: 5px;
+  text-align: center;
+}
+.select-tasa-nominal {
+  border: 1px solid #203192; /* Solo por estética, opcional */
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  width: 95px;
+}
+
+.select-tasa-nominal-10 {
+  border: 1px solid #203192; /* Solo por estética, opcional */
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  width: 65px;
+  padding: 3px;
+  width: 75px;
+}
+.span-resultado {
+  margin-left: 20px;
+}
+.tabla-interes-titulo-2 {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+.label-interes-3 {
+  margin: 10px;
+}
+.label-interes-4 {
+  margin: 10px;
+}
+
+.input-interes-3 {
+  width: 110px;
+  border: 2px solid #203192;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  margin-left: 10px;
+}
+
+.input-interes-4 {
+  width: 60px;
+  border: 2px solid #203192;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  margin-left: 10px;
+}
+.span-interes-3 {
+  margin-left: 10px;
+}
+
+.full-screen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultado-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titulo-tasas-equivalentes {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #203192;
+  margin-top: 10px;
+}
+
+.plazo-para-tasa-efectiva {
+  background-color: #e0e0e0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.plazo-para-tasa-efectiva-1 {
+  background-color: #e0e0e0;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 5px;
 }

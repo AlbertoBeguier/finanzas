@@ -89,7 +89,7 @@ export const TablaInteresCompuestoIngEgr = ({
 
   return (
     <div>
-      <h3 className="tabla-interes-titulo">
+      <h3 className="tabla-interes-titulo-1">
         Tabla de Interés Compuesto - Retiros y colocaciones
       </h3>
       <table>
