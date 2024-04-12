@@ -3,10 +3,13 @@ import { useTiempoDeLaOperacion } from "../hooks/useTiempoDeLaOperacion";
 import { useTasaInteres } from "../hooks/useTasaInteres";
 import { TablaInteresSimple } from "./TablaInteresSimple";
 import "../styles/InteresSimpleyCompuesto.css";
+
 export const InteresSimple = () => {
   const [capitalInicial, handleChangeInicial, capitalInicialFormateado] =
     useFormatPesosArgentinos();
   const [capitalFinal, handleChangeFinal, capitalFinalFormateado] =
+    useFormatPesosArgentinos();
+  const [interesPeriodico, handleChangeInteres, interesPeriodicoFormateado] =
     useFormatPesosArgentinos();
   const [
     cantidadTiempo,
@@ -24,6 +27,7 @@ export const InteresSimple = () => {
   const calcularVariableFaltante = () => {
     const Co = parseFloat(capitalInicial) || null;
     const Cn = parseFloat(capitalFinal) || null;
+    const I = parseFloat(interesPeriodico) || null;
     const i = parseFloat(tasa) || null;
     const n = parseFloat(cantidadTiempo) || null;
 
@@ -40,6 +44,16 @@ export const InteresSimple = () => {
         style: "currency",
         currency: "ARS",
       }).format(intereses)}`;
+    } else if (I !== null && i !== null && n !== null) {
+      // Nuevo caso para calcular Co utilizando I, i y n
+      const CoCalculado = I / (i * n);
+      resultado = `Capital inicial calculado usando Interés: ${new Intl.NumberFormat(
+        "es-AR",
+        {
+          style: "currency",
+          currency: "ARS",
+        }
+      ).format(CoCalculado)}`;
     } else if (Cn !== null && Co === null && i !== null && n !== null) {
       const CoCalculado = Cn / (1 + i * n);
       intereses = Cn - CoCalculado;
@@ -176,6 +190,26 @@ export const InteresSimple = () => {
           </label>
           <span className="span-interes">{capitalFinalFormateado}</span>
         </div>
+
+        <div>
+          <hr />
+          <p>
+            Calcular capital necesario para obtener cuota -- Ingresar: Cuota y
+            tasa de interés
+          </p>
+          <label className="label-interes">
+            Interés (Cuota)
+            <input
+              className="input-interes"
+              name="name-input-interes"
+              type="text"
+              value={interesPeriodico}
+              onChange={handleChangeInteres}
+            />
+          </label>
+          <span className="span-interes">{interesPeriodicoFormateado}</span>
+        </div>
+        <hr />
         {resultadoCalculo && (
           <div>
             <strong>Resultado:</strong>{" "}
@@ -183,6 +217,7 @@ export const InteresSimple = () => {
           </div>
         )}
       </div>
+
       <div className="contenedor-tabla">
         {datosCompletos && (
           <TablaInteresSimple
