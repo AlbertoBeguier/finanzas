@@ -110,3 +110,24 @@
   text-align: center;
   padding: 2px;
 }
+
+.tabla-interes-filas-2 {
+  font-size: 15px;
+  text-align: center;
+  padding: 2px;
+  color: orangered;
+}
+
+.tabla-interes-filas-3 {
+  font-size: 15px;
+  text-align: center;
+  padding: 2px;
+  color: rgb(38, 221, 38);
+}
+
+.egreso-ingreso-columna-1 {
+  background-color: orangered;
+}
+.egreso-ingreso-columna-2 {
+  background-color: rgb(38, 221, 38);
+}

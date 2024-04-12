@@ -79,18 +79,24 @@ export const TablaInteresCompuestoIngEgr = ({
   };
 
   const formatearPesosArgentinos = valor => {
-    return valor.toLocaleString("es-AR", {
-      style: "currency",
-      currency: "ARS",
-    });
+    // Verifica si el valor es un número antes de intentar formatearlo
+    if (typeof valor === "number" && !isNaN(valor)) {
+      return valor.toLocaleString("es-AR", {
+        style: "currency",
+        currency: "ARS",
+      });
+    } else {
+      // Devuelve un valor por defecto si el valor no es un número
+      return "$0.00";
+    }
   };
 
   let capitalAnterior = capitalInicial;
 
   return (
     <div>
-      <h3 className="tabla-interes-titulo-1">
-        Tabla de Interés Compuesto - Retiros y colocaciones
+      <h3 className="tabla-interes-titulo-2">
+        Tabla de Interés Compuesto con ingresos y egresos periódicos
       </h3>
       <table>
         <thead>
@@ -103,9 +109,11 @@ export const TablaInteresCompuestoIngEgr = ({
             <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna">
               Egresos
             </th>
+            <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna-1"></th>
             <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna">
               Ingresos
             </th>
+            <th className="tabla-interes-titulo-columna-1 egreso-ingreso-columna-2"></th>
           </tr>
         </thead>
         <tbody>
@@ -141,6 +149,10 @@ export const TablaInteresCompuestoIngEgr = ({
                     onChange={e => handleEgresoChange(periodo, e.target.value)}
                   />
                 </td>
+                <td className="tabla-interes-filas-2">
+                  {" "}
+                  {formatearPesosArgentinos(egresos[periodo])}
+                </td>
                 <td className="tabla-interes-filas-1">
                   <input
                     className="input-ingreso"
@@ -148,6 +160,10 @@ export const TablaInteresCompuestoIngEgr = ({
                     value={inputIngresos[periodo]}
                     onChange={e => handleIngresoChange(periodo, e.target.value)}
                   />
+                </td>
+                <td className="tabla-interes-filas-3">
+                  {" "}
+                  {formatearPesosArgentinos(ingresos[periodo])}
                 </td>
               </tr>
             );
