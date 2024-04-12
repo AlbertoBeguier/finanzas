@@ -14,7 +14,11 @@ import { GraficoCotizacionPlazoFijoBCRA } from "./GraficoCotizacionPlazoFijoBCRA
 export function PaginaAnalisis() {
   return (
     <div className="container-fluid">
-      <InfoDolar />
+      <div className="container-fluid row">
+        <div className="col-10">
+          <InfoDolar />
+        </div>
+      </div>
       <GraficoCotizacionDolarOficialMensual />
       <GraficoCotizacionDolarBlueMensual />
       <GraficoCotizacionDolarBolsaMensual />
