@@ -13,8 +13,8 @@ export function calcularTasasEquivalentes(tasas) {
     return {
       ...tasa,
       // Corregir el formateo para reflejar el resultado deseado
-      tasaMensual: tasaMensual.toFixed(5), // Mantiene la precisión a cuatro decimales
-      tasaDiaria: tasaDiaria.toFixed(7), // Ajuste para consistencia, si deseas seis decimales cambia a toFixed(6)
+      tasaMensual: tasaMensual.toFixed(5),
+      tasaDiaria: tasaDiaria.toFixed(7),
     };
   });
 }
