@@ -114,17 +114,12 @@ export const InfoDolar = () => {
                 <th className="truco-columna"></th>
                 <th className="truco-columna"></th>
                 <th className="truco-columna"></th>
-                <th className="truco-columna-1 group-header" colSpan="2">
-                  Variación Diaria
-                </th>
               </tr>
               <tr>
                 <th>Tipo</th>
                 <th className="tit-col">Compra</th>
                 <th className="tit-col">Venta</th>
-                <th className="truco-columna-1">Compra</th>
-                <th className="truco-columna-1">Venta</th>
-
+                <th className="truco-columna-1 group-header">Var Diaria</th>
                 <th className="truco-columna-1 group-header">Var. Mensual</th>
               </tr>
             </thead>
@@ -144,19 +139,10 @@ export const InfoDolar = () => {
                       currency: "ARS",
                     }).format(item.venta)}
                   </td>
+
                   <td
                     style={{
-                      color:
-                        item.variacionDiariaCompra !== "N/A" &&
-                        item.variacionDiariaCompra >= 0
-                          ? "green"
-                          : "red",
-                    }}
-                  >
-                    {item.variacionDiariaCompra}%
-                  </td>
-                  <td
-                    style={{
+                      textAlign: "center",
                       color:
                         item.variacionDiariaVenta !== "N/A" &&
                         item.variacionDiariaVenta >= 0
