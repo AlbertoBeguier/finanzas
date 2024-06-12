@@ -119,7 +119,7 @@ export const InfoDolar = () => {
                 <th>Tipo</th>
                 <th className="tit-col">Compra</th>
                 <th className="tit-col">Venta</th>
-                <th className="truco-columna-1 group-header">Var Diaria</th>
+                <th className="truco-columna-1 group-header">Var. Diaria</th>
                 <th className="truco-columna-1 group-header">Var. Mensual</th>
               </tr>
             </thead>
