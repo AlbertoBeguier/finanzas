@@ -94,3 +94,161 @@ body {
   justify-content: center;
   order: 2;
 }
+* {
+  padding: 0;
+}
+
+body {
+  margin-top: 20px;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.navbar-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-item-1 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.boton-navbar {
+  background-color: #3e499c;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3e499c; /* Borde Negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra gris */
+  text-decoration: none;
+}
+.boton-navbar:hover {
+  color: black; /* Color del texto al pasar el cursor */
+  background-color: rgb(219, 210, 210); /* Color de fondo al pasar el cursor */
+  text-decoration: none;
+  border: 2px solid rgb(196, 194, 194); /* Borde Negro */
+}
+
+.boton-navbar-1 {
+  background-color: #d4ddd4;
+  color: black;
+  font-weight: 600;
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  border: 2px solid rgb(196, 194, 194); /* Borde Negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra gris */
+  text-decoration: none;
+}
+.boton-navbar-1:hover {
+  color: white; /* Color del texto al pasar el cursor */
+  background-color: #3e499c; /* Color de fondo al pasar el cursor */
+  text-decoration: none;
+  border: 2px solid #3e499c; /* Borde Negro */
+}
+
+.whatsapp-icon {
+  width: 40px; /* o el tamaño que prefieras para tu icono */
+}
+
+.boton-navbar-10 {
+  background-color: #3e499c;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3e499c; /* Borde Negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra gris */
+  text-decoration: none;
+}
+.boton-navbar-10:hover {
+  color: black; /* Color del texto al pasar el cursor */
+  background-color: rgb(219, 210, 210); /* Color de fondo al pasar el cursor */
+  text-decoration: none;
+  border: 2px solid rgb(196, 194, 194); /* Borde Negro */
+}
+
+.boton-navbar-11 {
+  background-color: #3e499c;
+  color: white;
+  font-weight: 600;
+  border: none;
+  margin-left: 10px;
+  padding: 4px 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #3e499c; /* Borde Negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra gris */
+  text-decoration: none;
+}
+.boton-navbar-11:hover {
+  color: black; /* Color del texto al pasar el cursor */
+  background-color: rgb(219, 210, 210); /* Color de fondo al pasar el cursor */
+  text-decoration: none;
+  border: 2px solid rgb(196, 194, 194); /* Borde Negro */
+}
+
+.lineaHorizontal-nav {
+  border: none;
+  height: 2px;
+  background-color: #abb2e7;
+  position: relative;
+}
+
+.lineaHorizontal-nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 2px 2px 15px 3px rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.logo-container {
+  position: relative;
+  width: 335px; /* Ajusta el tamaño según sea necesario */
+  height: 70px; /* Ajusta el tamaño según sea necesario */
+}
+
+.logo-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 20s ease-in-out; /* Transición suave y lenta de 20 segundos */
+}
+
+.logo-img.show {
+  opacity: 1;
+}

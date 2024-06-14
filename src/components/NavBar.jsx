@@ -1,27 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/logoEstudio.png";
+import logo1 from "../assets/logoEstudio1.png";
 import whatsappIcon from "../assets/whatsapp.png";
-import { obtenerFechaActual } from "../utilities/fechaActual.js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
+import { obtenerFechaActual } from "../utilities/fechaActual.js";
 
 export const NavBar = () => {
   const [showContact, setShowContact] = useState(true);
-  const navigate = useNavigate(); // Hook para navegar a otras páginas
+  const [showDate, setShowDate] = useState(true);
+  const [showLogo1, setShowLogo1] = useState(true);
+  const navigate = useNavigate();
 
-  // Función para manejar el clic en el botón de contacto
+  useEffect(() => {
+    let timer;
+    if (!showContact && !showDate) {
+      timer = setTimeout(() => {
+        setShowContact(true);
+        setShowDate(true);
+      }, 10000);
+    }
+    return () => clearTimeout(timer);
+  }, [showContact, showDate]);
+
+  useEffect(() => {
+    const logoTimer = setInterval(() => {
+      setShowLogo1(prevShowLogo1 => !prevShowLogo1);
+    }, 20000); // Cambia el logo cada 20 segundos
+    return () => clearInterval(logoTimer);
+  }, []);
+
   const handleContactClick = () => {
-    setShowContact(false); // Oculta el botón de contacto
-
-    // Después de 10 segundos, cambia el estado de nuevo para mostrar el botón de contacto y la fecha
-    setTimeout(() => {
-      setShowContact(true);
-    }, 10000);
+    setShowContact(false);
+    setShowDate(false);
   };
 
-  const handleContactClick1 = () => {
-    window.location.href = "/";
-  };
   const handleContactClick2 = () => {
     navigate("/");
     window.scrollTo(0, 0);
@@ -48,28 +61,36 @@ export const NavBar = () => {
     <div>
       <nav className="navbar navbar-expand-lg justify-content-center">
         <div className="navbar-content">
-          <span className="navbar-brand">
-            <img
-              onClick={handleContactClick1}
-              src={logo}
-              className="d-inline-block align-top logo-estudio"
-              alt="Logo del estudio"
-            />
+          <span className="navbar-brand logo-container">
+            <Link to="/">
+              <img
+                src={logo}
+                className={`d-inline-block align-top logo-img ${
+                  showLogo1 ? "show" : ""
+                }`}
+                alt="logo"
+              />
+              <img
+                src={logo1}
+                className={`d-inline-block align-top logo-img ${
+                  showLogo1 ? "" : "show"
+                }`}
+                alt="logo1"
+              />
+            </Link>
           </span>
           <ul className="navbar-nav">
             {showContact ? (
               <li className="nav-item">
-                {/* Botón para mostrar contacto */}
                 <span className="boton-navbar" onClick={handleContactClick}>
                   CONTACTO
                 </span>
               </li>
             ) : (
               <li className="nav-item">
-                {/* Icono de WhatsApp y número de teléfono una vez que se ha hecho clic en CONTACTO */}
                 <img
                   src={whatsappIcon}
-                  alt="WhatsApp"
+                  alt="whatsapp"
                   className="whatsapp-icon"
                 />
                 <span className="telefono">(+54 9 388) 4781336</span>
@@ -102,9 +123,11 @@ export const NavBar = () => {
             </li>
           </ul>
         </div>
-        <div className="fecha-actual-container">
-          <div className="fecha-actual"> {obtenerFechaActual()}</div>
-        </div>
+        {showDate && (
+          <div className="fecha-actual-container">
+            <div className="fecha-actual"> {obtenerFechaActual()}</div>
+          </div>
+        )}
       </nav>
     </div>
   );

@@ -1,0 +1,109 @@
+.enlaces {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre los elementos */
+  margin-top: 10px;
+}
+
+.h4-enlaces {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3e499c;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  color: #3e499c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.icon-container:hover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.icon-container span {
+  margin-top: 5px;
+}
+
+.image-container-afip,
+.image-container-anses,
+.image-container-mteyss,
+.image-container-bcra,
+.image-container-bna,
+.image-container-macro-p,
+.image-container-macro-e,
+.image-container-estudio-tareas {
+  width: 70px; /* Ajusta el tamaño según sea necesario */
+  height: 70px; /* Ajusta el tamaño según sea necesario */
+  background-size: cover;
+  transition: background-image 0.3s ease;
+  border-radius: 5px;
+}
+
+.image-container-afip {
+  background-image: url("/logoafip-n.png");
+}
+.image-container-afip:hover {
+  background-image: url("/logoafip-a.png");
+}
+
+.image-container-anses {
+  background-image: url("/anses-n50x50.png");
+}
+.image-container-anses:hover {
+  background-image: url("/anses-a.png");
+}
+
+.image-container-mteyss {
+  background-image: url("/min_trabajo_empleo_seguridad_social-n.png");
+}
+.image-container-mteyss:hover {
+  background-image: url("/min_trabajo_empleo_seguridad_social.png");
+}
+
+.image-container-bcra {
+  background-image: url("/bcra.png");
+}
+.image-container-bcra:hover {
+  background-image: url("/bcra-a.png");
+}
+
+.image-container-bna {
+  background-image: url("/banconacion-n.png");
+}
+.image-container-bna:hover {
+  background-image: url("/banconacion.png");
+}
+
+.image-container-macro-p {
+  background-image: url("/macro.png");
+}
+.image-container-macro-p:hover {
+  background-image: url("/macro-.png");
+}
+
+.image-container-macro-e {
+  background-image: url("/macro-1.png");
+}
+.image-container-macro-e:hover {
+  background-image: url("/macro-2.png");
+}
+
+.image-container-estudio-tareas {
+  background-image: url("/agenda.png");
+}
+.image-container-estudio-tareas:hover {
+  background-image: url("/agenda-a.png");
+}
