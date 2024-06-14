@@ -12,7 +12,7 @@ function PaginaPrincipal() {
         <div className="col-1 enlaces-container">
           <Enlaces />
         </div>
-        <div className="col-10">
+        <div className="col-11">
           <InfoDolar />
           <GraficoCotizacionDolarOficialMensual />
           <GraficoCotizacionDolarBlueMensual />
