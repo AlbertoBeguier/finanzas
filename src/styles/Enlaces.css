@@ -1,16 +1,17 @@
+/* Enlaces.css */
+
 .enlaces {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px; /* Espacio entre los elementos */
-  margin-top: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; /* Espacio entre los elementos */
 }
 
 .h4-enlaces {
   font-size: 20px;
   font-weight: 700;
   color: #3e499c;
+  margin-bottom: 20px; /* Espacio debajo del título */
 }
 
 .icon-container {
@@ -24,12 +25,7 @@
 }
 
 .icon-container:hover {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
   color: black;
-  font-size: 14px;
   font-weight: 700;
 }
 
@@ -106,4 +102,17 @@
 }
 .image-container-estudio-tareas:hover {
   background-image: url("/agenda-a.png");
+}
+
+/* PáginaPrincipal.css */
+.enlaces-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border-right: 1px solid #ccc; /* Línea divisoria */
+}
+
+.container-fluid > .row {
+  display: flex;
 }

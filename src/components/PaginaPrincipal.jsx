@@ -8,18 +8,18 @@ import { Enlaces } from "./Enlaces";
 function PaginaPrincipal() {
   return (
     <div className="container-fluid">
-      <div className="container-fluid row">
-        <div className="col-12">
+      <div className="row">
+        <div className="col-1 enlaces-container">
           <Enlaces />
         </div>
         <div className="col-10">
           <InfoDolar />
+          <GraficoCotizacionDolarOficialMensual />
+          <GraficoCotizacionDolarBlueMensual />
+          <GraficoCotizacionDolarBolsaMensual />
+          <GraficoCotizacionDolarContadoConLiquiMensual />
         </div>
       </div>
-      <GraficoCotizacionDolarOficialMensual />
-      <GraficoCotizacionDolarBlueMensual />
-      <GraficoCotizacionDolarBolsaMensual />
-      <GraficoCotizacionDolarContadoConLiquiMensual />
     </div>
   );
 }
