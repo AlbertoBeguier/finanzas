@@ -8,10 +8,13 @@
 }
 
 .h4-enlaces {
-  font-size: 20px;
-  font-weight: 700;
-  color: #3e499c;
-  margin-bottom: 20px; /* Espacio debajo del título */
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+  background-color: #3e499c; /* Espacio debajo del título */
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .icon-container {
@@ -40,6 +43,7 @@
 .image-container-bna,
 .image-container-macro-p,
 .image-container-macro-e,
+.image-container-argentina-finanzas,
 .image-container-estudio-tareas {
   width: 70px; /* Ajusta el tamaño según sea necesario */
   height: 70px; /* Ajusta el tamaño según sea necesario */
@@ -97,6 +101,13 @@
   background-image: url("/macro-2.png");
 }
 
+.image-container-argentina-finanzas {
+  background-image: url("/min_trabajo_empleo_seguridad_social-n.png");
+}
+.image-container-argentina-finanzas:hover {
+  background-image: url("/min_trabajo_empleo_seguridad_social.png");
+}
+
 .image-container-estudio-tareas {
   background-image: url("/agenda.png");
 }
@@ -110,9 +121,14 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
-  border-right: 1px solid #ccc; /* Línea divisoria */
+  position: relative; /* Necesario para el pseudo-elemento ::after */
+  background-color: #abb2e7; /* Color de fondo del borde */
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(79, 114, 143, 0.7); /* Sombra */
+  overflow: hidden; /* Asegura que el contenido no sobresalga de los bordes redondeados */
 }
 
-.container-fluid > .row {
-  display: flex;
+.container-fluid {
+  padding-left: 40px; /* Espacio a la izquierda de la página */
+  padding-top: 20px;
 }

@@ -39,6 +39,11 @@ export const Enlaces = () => {
       text: "MACRO E",
     },
     {
+      className: "image-container-argentina-finanzas",
+      url: "https://www.argentina.gob.ar/economia/finanzas",
+      text: "FINANZAS",
+    },
+    {
       className: "image-container-estudio-tareas",
       url: "https://tareas.estudiobeguier.com.ar/",
       text: "TAREAS",
