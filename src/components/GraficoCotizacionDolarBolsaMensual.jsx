@@ -113,7 +113,7 @@ export const GraficoCotizacionDolarBolsaMensual = () => {
         color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
-        display: meses <= 36,
+        display: meses <= 24,
         anchor: "center",
         align: "center",
         color: "black",

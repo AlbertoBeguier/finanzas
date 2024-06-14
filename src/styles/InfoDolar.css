@@ -1,3 +1,7 @@
+.centrar-texto {
+  text-align: center;
+}
+
 .spinner {
   border: 4px solid rgba(0, 0, 0, 0.1); /* Color claro para los lados del spinner */
   border-left-color: #3e499c; /* Color azul para el lado izquierdo del spinner */

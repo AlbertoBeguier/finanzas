@@ -105,7 +105,7 @@ export const GraficoInflacionMensual = () => {
       },
       // Configura las etiquetas de datos aquí
       datalabels: {
-        display: meses <= 24,
+        display: meses <= 18,
         anchor: "center",
         align: "center",
         color: "black",

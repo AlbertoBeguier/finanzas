@@ -95,7 +95,7 @@ export const GraficoInflacionInteranual = () => {
         color: "#3e499c", // Establece el color de tu preferencia
       },
       datalabels: {
-        display: meses <= 24,
+        display: meses <= 18,
         anchor: "center",
         align: "center",
         color: "black",
