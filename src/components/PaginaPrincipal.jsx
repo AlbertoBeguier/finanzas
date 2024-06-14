@@ -8,8 +8,8 @@ import { Enlaces } from "./Enlaces";
 function PaginaPrincipal() {
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-1 enlaces-container">
+      <div className="row ">
+        <div className="col-1 enlaces-container align-items-center">
           <Enlaces />
         </div>
         <div className="col-11">
