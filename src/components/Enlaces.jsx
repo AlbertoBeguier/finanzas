@@ -48,6 +48,46 @@ export const Enlaces = () => {
       url: "https://tareas.estudiobeguier.com.ar/",
       text: "TAREAS",
     },
+    {
+      className: "image-container-errepar",
+      url: "https://www.errepar.com/",
+      text: "ERREPAR",
+    },
+    {
+      className: "image-container-indec",
+      url: "https://www.indec.gob.ar/",
+      text: "INDEC",
+    },
+    {
+      className: "image-container-dolar-hoy",
+      url: "https://dolarhoy.com/",
+      text: "DOLAR ",
+    },
+    {
+      className: "image-container-cripto",
+      url: "https://criptoya.com/",
+      text: "CRIPTO ",
+    },
+    {
+      className: "image-container-iprofesional",
+      url: "https://www.iprofesional.com/",
+      text: "IPROFES.",
+    },
+    {
+      className: "image-container-infobae",
+      url: "https://www.infobae.com/",
+      text: "INFOBAE",
+    },
+    {
+      className: "image-container-el-cronista",
+      url: "https://www.cronista.com/",
+      text: "CRONISTA",
+    },
+    {
+      className: "image-container-mi-argentina",
+      url: "https://www.argentina.gob.ar/miargentina",
+      text: "MI ARG.",
+    },
   ];
 
   return (

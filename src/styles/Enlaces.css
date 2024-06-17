@@ -44,7 +44,15 @@
 .image-container-macro-p,
 .image-container-macro-e,
 .image-container-argentina-finanzas,
-.image-container-estudio-tareas {
+.image-container-estudio-tareas,
+.image-container-iprofesional,
+.image-container-infobae,
+.image-container-el-cronista,
+.image-container-indec,
+.image-container-dolar-hoy,
+.image-container-errepar,
+.image-container-cripto,
+.image-container-mi-argentina {
   width: 70px; /* Ajusta el tamaño según sea necesario */
   height: 70px; /* Ajusta el tamaño según sea necesario */
   background-size: cover;
@@ -115,6 +123,55 @@
   background-image: url("/agenda-a.png");
 }
 
+.image-container-errepar {
+  background-image: url("/errepar.png");
+}
+.image-container-errepar:hover {
+  background-image: url("/errepar-a.png");
+}
+.image-container-iprofesional {
+  background-image: url("/iprofesional.png");
+}
+.image-container-iprofesional:hover {
+  background-image: url("/iprofesional-a.png");
+}
+.image-container-infobae {
+  background-image: url("/infobae.png");
+}
+.image-container-infobae:hover {
+  background-image: url("/infobae-a.png");
+}
+.image-container-el-cronista {
+  background-image: url("/el-cronista.png");
+}
+.image-container-el-cronista:hover {
+  background-image: url("/el-cronista-a.png");
+}
+.image-container-indec {
+  background-image: url("/indec.png");
+}
+.image-container-indec:hover {
+  background-image: url("/indec-a.png");
+}
+.image-container-dolar-hoy {
+  background-image: url("/dolar-hoy.png");
+}
+.image-container-dolar-hoy:hover {
+  background-image: url("/dolar-hoy-a.png");
+}
+.image-container-cripto {
+  background-image: url("/cripto.png");
+}
+.image-container-cripto:hover {
+  background-image: url("/cripto-a.png");
+}
+
+.image-container-mi-argentina {
+  background-image: url("/mi-argentina.png");
+}
+.image-container-mi-argentina:hover {
+  background-image: url("/mi-argentina-a.png");
+}
 /* PáginaPrincipal.css */
 .enlaces-container {
   display: flex;
