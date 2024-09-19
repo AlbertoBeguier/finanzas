@@ -45,7 +45,7 @@ export const Enlaces = () => {
     },
     {
       className: "image-container-estudio-tareas",
-      url: "https://tareas.estudiobeguier.com.ar/",
+      url: "https://www.apptareas.estudiobeguier.com.ar//",
       text: "TAREAS",
     },
     {
@@ -100,7 +100,7 @@ export const Enlaces = () => {
             onClick={() => window.open(enlace.url, "_blank")}
             role="button"
             tabIndex={0}
-            onKeyPress={e =>
+            onKeyPress={(e) =>
               e.key === "Enter" && window.open(enlace.url, "_blank")
             }
           />
