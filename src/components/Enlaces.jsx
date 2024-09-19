@@ -45,7 +45,7 @@ export const Enlaces = () => {
     },
     {
       className: "image-container-estudio-tareas",
-      url: "https://www.apptareas.estudiobeguier.com.ar//",
+      url: "https://www.apptareas.estudiobeguier.com.ar",
       text: "TAREAS",
     },
     {
