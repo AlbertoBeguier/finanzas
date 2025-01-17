@@ -15,7 +15,7 @@ export const Enlaces = () => {
     {
       className: "image-container-afip",
       url: "https://www.afip.gob.ar/landing/default.asp",
-      text: "AFIP",
+      text: "ARCA",
     },
     {
       className: "image-container-anses",
